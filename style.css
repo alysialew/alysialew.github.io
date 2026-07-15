@@ -1,153 +1,245 @@
-/*
-   style.css
-*/
+/* ==========================================================================
+   Alysia Lewis - IT-FPX3240 Web Development and JavaScript
+   Assessment 4 Stylesheet
+   ========================================================================== */
 
+/* --- Root & Basic Reset --- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Body styling */
 body {
-    background-color: #121212;
-    color: #f5f5f5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font matching a cybersecurity terminal vibe */
+  background-color: #0d1117;
+  color: #c9d1d9;
+  line-height: 1.6;
+}
+
+/* Page Wrapper */
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Header styling */
 header {
-    background-color: #1f1f1f;
-    text-align: center;
-    padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 2px solid #238636; /* Security green border */
 }
 
-/* Header image */
 header img {
-    width: 9rem;
-    border-radius: 50%;
-    margin-bottom: 1rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 2px solid #238636;
 }
 
-/* Main page heading */
-h1 {
-    color: #00cc99;
-    font-size: 2rem;
-    margin-bottom: .5rem;
+.header-text h1 {
+  color: #58a6ff;
+  font-size: 2.2rem;
 }
 
-/* Section headings */
-h2 {
-    color: #00cc99;
-    margin-top: 2rem;
-    margin-bottom: .75rem;
+.header-text p {
+  color: #8b949e;
 }
 
-/* Subheadings*/
-h3 {
-    color: #66ffcc;
-    margin-top: 1.5rem;
-    margin-bottom: .5rem;
-}
-
-/* Navigation bar */
+/* ==========================================================================
+   NAVIGATION BAR - CSS FLEXBOX LAYOUT (Assessment 4 Requirement)
+   ========================================================================== */
 nav {
-    background-color: #2c2c2c;
-    text-align: center;
-    padding: .75rem;
+  background-color: #161b22;
+  margin: 20px 0;
+  border: 1px solid #30363d;
+  border-radius: 6px;
 }
 
-/* Navigation items displayed horizontally */
-nav ul li {
-    display: inline;
-    margin: 0 1rem;
+/* The <ul> acts as the Flex Container for the nav items */
+nav ul {
+  display: flex;               /* Activates Flexbox on the list container */
+  justify-content: center;     /* Centers the navigation items horizontally */
+  flex-wrap: wrap;             /* Allows items to wrap onto new lines on small screens */
+  list-style: none;            /* Removes default bullet points */
+  padding: 10px 0;
 }
 
-/* Navigation links*/
+/* Style the flex items */
+nav li {
+  margin: 5px 15px;            /* Adds uniform spacing around each navigation link */
+}
+
 nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
-/* Active page and hover effect*/
-nav a:hover,
-nav a.active {
-    color: #00cc99;
+/* Highlight style for the active page */
+nav a.active, nav a:hover {
+  background-color: #238636;
+  color: #ffffff;
 }
 
-/* Main content area */
+/* --- Main Content styling --- */
 main {
-    width: 90%;
-    max-width: 900px;
-    margin: 2rem auto;
+  padding: 20px 0;
 }
 
-/* Paragraph spacing */
+h2 {
+  color: #238636;
+  font-size: 1.6rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 5px;
+}
+
 p {
-    margin-bottom: 1rem;
+  margin-bottom: 15px;
 }
 
-/* Lists */
-ul {
-    margin-left: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-/* Images inside the page */
-main img {
-    width: 100%;
-    max-width: 400px;
-    display: block;
-    margin: 1rem auto;
-    border-radius: .5rem;
-}
-
-/* Blockquote styling */
 blockquote {
-    border-left: .3rem solid #00cc99;
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    font-style: italic;
+  border-left: 4px solid #58a6ff;
+  padding: 10px 20px;
+  margin: 20px 0;
+  background-color: #161b22;
+  font-style: italic;
+  color: #8b949e;
 }
 
-/* Hyperlinks */
-a {
-    color: #66ffcc;
+/* Unordered list inside main body styling */
+main ul {
+  list-style-position: inside;
+  margin-bottom: 20px;
 }
 
-a:hover {
-    text-decoration: underline;
+main li {
+  margin-bottom: 8px;
 }
 
-/* Footer */
+/* ==========================================================================
+   FEATURED ITEMS (CARDS) - CSS FLEXBOX LAYOUT (Assessment 4 Requirement)
+   ========================================================================== */
+/* The cards container acts as the Flex Container */
+.cards-container {
+  display: flex;               /* Activates Flexbox layout */
+  flex-wrap: wrap;             /* Instructs cards to wrap to a new line when space runs out */
+  justify-content: space-between; /* Evenly distributes remaining space between cards */
+  gap: 20px;                   /* Adds gap spacing between adjacent cards */
+  margin-top: 20px;
+}
+
+/* Individual card components acting as Flex Items */
+.card {
+  flex: 1 1 calc(33.333% - 20px); /* Flex growth, shrink, and initial basis set to fit 3 cards per row */
+  min-width: 280px;            /* Ensures cards don't shrink too small on narrow screens */
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;      /* Arranges content within each card vertically using Flexbox */
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #238636;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  color: #58a6ff;
+  padding: 15px 15px 5px 15px;
+  font-size: 1.2rem;
+}
+
+.card p {
+  color: #8b949e;
+  padding: 0 15px 15px 15px;
+  font-size: 0.9rem;
+  flex-grow: 1;                /* Forces cards on the same row to align heights evenly */
+}
+
+/* --- Contact Page Form Styling --- */
+form {
+  background-color: #161b22;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #58a6ff;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  color: #c9d1d9;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #238636;
+}
+
+button {
+  background-color: #238636;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #2ea043;
+}
+
+/* --- Footer styling --- */
 footer {
-    background-color: #1f1f1f;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #30363d;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #8b949e;
 }
 
-/* Responsive layout for smaller screens */
-@media (max-width: 600px) {
+footer a {
+  color: #58a6ff;
+  text-decoration: none;
+}
 
-    body {
-        font-size: .95rem;
-    }
-
-    nav ul li {
-        display: block;
-        margin: .5rem 0;
-    }
-
-    header img {
-        width: 7rem;
-    }
-
-    main {
-        width: 95%;
-    }
-
+footer a:hover {
+  text-decoration: underline;
 }
