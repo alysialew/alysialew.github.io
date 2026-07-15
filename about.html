@@ -1,82 +1,68 @@
+HTML
+￼
+￼
 <!DOCTYPE html>
+<!-- about.html — Alysia Lewis Personal Portfolio
+     IT-FPX3240 Web Development and JavaScript
+     Assessments 2–10: About Page -->
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Link to the shared external stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-    <title>About | Alysia Lewis</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Alysia | Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <div class="page-wrapper">
 
-    <!-- Site Header -->
+    <!-- ===== HEADER ===== -->
     <header>
-
-        <img src="logo.png" alt="Photo of Alysia Lewis">
-
+      <img src="logo.png" alt="Photo of Alysia Lewis" />
+      <div class="header-text">
         <h1>Alysia Lewis</h1>
-
-        <p>Cybersecurity Student | Security+ Certified</p>
-
+        <p>Cybersecurity Student &amp; Security+ Certified Analyst</p>
+      </div>
     </header>
 
-    <!-- Site Navigation -->
-    <nav>
-
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a class="active" href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-
+    <!-- ===== NAVIGATION (Flexbox — Assessment 4) ===== -->
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">$ Home</a></li>
+        <li><a href="about.html" class="active">$ About</a></li>
+        <li><a href="contact.html">$ Contact</a></li>
+        <li><a href="resources.html">$ Resources</a></li>
+        <li><a href="weather.html">$ Weather</a></li>
+      </ul>
     </nav>
 
-    <!-- Main Content -->
+    <!-- ===== MAIN CONTENT ===== -->
     <main>
+      <h2>$ ABOUT_ME</h2>
+      <p>
+        I am currently a focused Information Assurance and Cybersecurity student at Capella University. My academic journey combines deep theoretical constructs with physical laboratory setups. My core objective is defending critical infrastructure and mitigating digital risks.
+      </p>
 
-        <h2>About Me</h2>
+      <h2>$ MY_SKILLS</h2>
+      <ul>
+        <li><strong>Threat Analysis:</strong> Auditing intrusion pathways and event diagnostics.</li>
+        <li><strong>System Hardening:</strong> Utilizing CIS benchmarks and security baselines.</li>
+        <li><strong>Automation:</strong> Drafting shell automation scripts in Linux (Bash).</li>
+        <li><strong>Network Design:</strong> Structuring segmented virtual environments (VLANs).</li>
+      </ul>
 
-        <img src="cybersecurity.jpg"
-             alt="Cybersecurity workstation with multiple monitors">
-
-        <p>
-            I am currently pursuing a Bachelor of Science in Cybersecurity at
-            Capella University. My interests include cybersecurity, networking,
-            vulnerability management, incident response, and security
-            operations.
-        </p>
-
-        <h2>Education and Certifications</h2>
-
-        <ul>
-            <li>Capella University – B.S. Cybersecurity (In Progress)</li>
-            <li>CompTIA A+</li>
-            <li>CompTIA Network+</li>
-            <li>CompTIA Security+</li>
-            <li>ITIL Foundation</li>
-        </ul>
-
-        <h2>Career Goals</h2>
-
-        <p>
-            My goal is to begin my career as a cybersecurity analyst where I
-            can continue learning while helping organizations protect their
-            systems and information.
-        </p>
-
+      <h2>$ TARGET_AREAS</h2>
+      <p>
+        Currently seeking an internship or entry-level role as a SOC Analyst, Incident Responder, or Junior Information Security Consultant.
+      </p>
     </main>
 
-    <!-- Site Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer>
-
-        <p>&copy; 2026 Alysia Lewis</p>
-
+      <p>&copy; 2026 Alysia Lewis &mdash; Capella University IT-FPX3240 |
+        <a href="https://github.com/alysialew" target="_blank" rel="noopener">GitHub</a>
+      </p>
     </footer>
 
+  </div>
 </body>
-
 </html>
