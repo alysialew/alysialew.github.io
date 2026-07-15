@@ -1,26 +1,13 @@
-/* =============================================================
-   style.css — Alysia Lewis Personal Portfolio
-   IT-FPX3240 Web Development and JavaScript
-   Assessments 3–10: External CSS Stylesheet
-   ============================================================= */
+/* External CSS Stylesheet */
 
-/* --- 1. CSS Reset & Box Model ---
-   Remove default browser margins/padding; use border-box sizing
-   so padding is included in element width calculations. */
+/* CSS Reset & Box Model */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* --- 2. Root Color Variables ---
-   Color palette: dark terminal theme with green accents.
-   #0d0d0d = near-black background (terminal feel)
-   #1a1a1a = slightly lighter surface
-   #00ff88 = electric green accent (cybersecurity / hacker aesthetic)
-   #cccccc = light gray body text
-   #888888 = muted/secondary text
-   Error red and success green for form feedback. */
+/* Root Color Variables */
 :root {
   --bg-dark:    #0d0d0d;
   --bg-mid:     #1a1a1a;
@@ -30,13 +17,9 @@
   --text-main:  #cccccc;
   --text-muted: #888888;
   --border:     #333333;
-  --error:      #ff4444;
-  --success:    #00ff88;
 }
 
-/* --- 3. Typography & Body ---
-   Monospace font reinforces the terminal aesthetic.
-   Line-height 1.7 for comfortable reading. */
+/* Typography & Body */
 body {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
@@ -46,25 +29,15 @@ body {
   min-height: 100vh;
 }
 
-/* --- 4. CSS Grid Page Layout (Assessment 5) ---
-   Full-page grid with named areas stacked vertically.
-   header → nav → main → footer */
+/* Page Layout */
 .page-wrapper {
-  display: grid;
-  grid-template-areas:
-    "header"
-    "nav"
-    "main"
-    "footer";
-  grid-template-rows: auto auto 1fr auto;
-  min-height: 100vh;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* --- 5. Header ---
-   Banner area with logo, site title, and tagline.
-   Uppercase title with letter-spacing for a bold look. */
+/* Header */
 header {
-  grid-area: header;
   background-color: var(--bg-mid);
   border-bottom: 2px solid var(--accent);
   padding: 1.5rem 2rem;
@@ -94,23 +67,19 @@ header img {
   margin-bottom: 0;
 }
 
-/* --- 6. Navigation Bar (Flexbox — Assessment 4) ---
-   Horizontal nav using Flexbox. Links centered with
-   hover/active states using accent background. */
+/* NAVIGATION BAR - CSS FLEXBOX LAYOUT */
 nav {
-  grid-area: nav;
   background-color: var(--bg-mid);
   border-bottom: 1px solid var(--border);
 }
 
-/* Flexbox container for nav links */
+/* Flexbox container: lines up list items horizontally and centers them */
 nav ul {
-  display: flex;              /* Flexbox: horizontal row */
-  flex-direction: row;        /* items flow left to right */
-  justify-content: center;    /* center the group */
-  align-items: center;
+  display: flex;              /* Establishes flex container for navigation links */
+  flex-direction: row;        /* Elements flow horizontally */
+  justify-content: center;    /* Centers navigation items along the main axis */
+  align-items: center;        /* Centers items vertically along the cross axis */
   list-style: none;
-  gap: 0;
   margin: 0;
   padding: 0;
 }
@@ -125,25 +94,19 @@ nav ul li a {
   transition: background-color 0.2s, color 0.2s;
 }
 
-/* Hover and active state for nav links */
+/* Hover and active states using variable background accents */
 nav ul li a:hover,
 nav ul li a.active {
   background-color: var(--accent);
   color: var(--bg-dark);
 }
 
-/* --- 7. Main Content Area ---
-   Centered content with max-width and consistent padding. */
+/* Main Content Area */
 main {
-  grid-area: main;
-  padding: 2.5rem 2rem;
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
+  padding: 2.5rem 0;
 }
 
-/* --- 8. Headings ---
-   Accent-colored headings; h2 has a bottom border separator. */
+/* Headings & Typography */
 h1, h2, h3 {
   color: var(--accent);
   margin-bottom: 0.6rem;
@@ -162,8 +125,6 @@ h3 {
   color: var(--text-main);
 }
 
-/* --- 9. Paragraph & List Text ---
-   Comfortable body text spacing. */
 p {
   margin-bottom: 1rem;
   color: var(--text-main);
@@ -178,22 +139,22 @@ li {
   margin-bottom: 0.4rem;
 }
 
-/* --- 10. Feature Cards (Flexbox — Assessment 4) ---
-   Six+ card elements in a responsive Flexbox layout.
-   Cards wrap automatically as the viewport narrows. */
+/*FEATURED ITEMS */
+/* Flex Container */
 .cards-container {
-  display: flex;              /* Flexbox: horizontal card row */
-  flex-wrap: wrap;            /* wrap to next line on narrow screens */
-  gap: 1.2rem;
+  display: flex;              /* flex container for child elements */
+  flex-wrap: wrap;            /* Allows card items to wrap to a new line as viewport narrows */
+  gap: 1.2rem;                /* Sets uniform gutter space between adjacent cards */
   margin-top: 1.5rem;
 }
 
+/* Individual card elements acting as Flex Items */
 .card {
   background-color: var(--bg-light);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 1.2rem;
-  flex: 1 1 260px;            /* grow/shrink, min width 260px */
+  flex: 1 1 260px;
   max-width: 340px;
   transition: border-color 0.2s, transform 0.2s;
 }
@@ -218,8 +179,7 @@ li {
   border: 1px solid var(--border);
 }
 
-/* --- 11. Blockquote / Pull Quote ---
-   Styled callout with left accent border. */
+/* Blockquote */
 blockquote {
   border-left: 4px solid var(--accent);
   padding: 0.8rem 1.2rem;
@@ -230,29 +190,7 @@ blockquote {
   border-radius: 0 6px 6px 0;
 }
 
-/* --- 12. Footer ---
-   Sits in the footer grid area; small centered text. */
-footer {
-  grid-area: footer;
-  background-color: var(--bg-mid);
-  border-top: 1px solid var(--border);
-  text-align: center;
-  padding: 1rem 2rem;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-footer a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* --- 13. Links ---
-   Global anchor styling with accent color. */
+/* Links */
 a {
   color: var(--accent);
   text-decoration: none;
@@ -262,33 +200,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* --- 14. Images ---
-   Responsive images that never overflow their container. */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* --- 15. Resources List (Assessment 6) ---
-   Styles the JS-generated list on resources.html. */
-#list ul {
-  list-style: none;
-  margin-left: 0;
-}
-
-#list ul li {
-  background-color: var(--bg-light);
-  border-left: 4px solid var(--accent);
-  padding: 0.7rem 1rem;
-  margin-bottom: 0.6rem;
-  border-radius: 0 6px 6px 0;
-  color: var(--text-main);
-  font-size: 0.95rem;
-}
-
-/* --- 16. HTML Form Styles (Assessments 7, 8, 9) ---
-   Positions and styles the contact form elements. */
+/* Contact Form Layout */
 form {
   background-color: var(--bg-light);
   border: 1px solid var(--border);
@@ -321,9 +233,6 @@ label {
 
 input[type="text"],
 input[type="email"],
-input[type="tel"],
-input[type="number"],
-select,
 textarea {
   width: 100%;
   background-color: var(--bg-dark);
@@ -334,17 +243,6 @@ textarea {
   font-size: 0.95rem;
   padding: 0.5rem 0.75rem;
   margin-bottom: 1rem;
-  transition: border-color 0.2s;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="number"]:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--accent);
 }
 
 textarea {
@@ -352,30 +250,7 @@ textarea {
   min-height: 100px;
 }
 
-/* Radio and checkbox groups use Flexbox for inline layout */
-.radio-group,
-.checkbox-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-bottom: 1rem;
-}
-
-.radio-group label,
-.checkbox-group label {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--text-main);
-  cursor: pointer;
-  margin-bottom: 0;
-}
-
-/* Submit and reset buttons */
-button[type="submit"],
-button[type="reset"],
-input[type="submit"],
-input[type="reset"] {
+button[type="submit"] {
   background-color: var(--accent);
   color: var(--bg-dark);
   border: none;
@@ -385,74 +260,25 @@ input[type="reset"] {
   font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
-  margin-right: 0.8rem;
-  transition: background-color 0.2s, transform 0.1s;
+  transition: background-color 0.2s;
 }
 
-button[type="submit"]:hover,
-input[type="submit"]:hover {
+button[type="submit"]:hover {
   background-color: var(--accent-dim);
-  transform: translateY(-1px);
 }
 
-button[type="reset"]:hover,
-input[type="reset"]:hover {
-  background-color: var(--border);
-  color: var(--text-main);
-}
-
-/* --- 17. Validation Messages (Assessment 9) ---
-   Error messages in red, success messages in green. */
-.error-msg {
-  color: var(--error);
-  font-size: 0.85rem;
-  margin-top: -0.7rem;
-  margin-bottom: 0.6rem;
-  display: block;
-}
-
-.success-msg {
-  color: var(--success);
-  font-size: 0.95rem;
-  margin-top: 1rem;
-  font-weight: bold;
-}
-
-#form-status {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  font-weight: bold;
-}
-
-/* --- 18. Weather Page Styles (Assessment 10) ---
-   Specific styling for weather form and results display. */
-#weather-results {
-  margin-top: 1.5rem;
-  background-color: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.5rem;
-  display: none; /* hidden until data loads */
-}
-
-#weather-results.visible {
-  display: block;
-}
-
-#weather-results h3 {
-  color: var(--accent);
-  margin-bottom: 0.8rem;
-}
-
-#weather-status {
-  margin-top: 1rem;
+/* 13. Footer */
+footer {
+  background-color: var(--bg-mid);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
-  font-style: italic;
+  margin-top: 2rem;
 }
 
-/* --- 19. Responsive Design ---
-   Media query for screens narrower than 600px:
-   header stacks vertically, nav goes vertical, cards go full width. */
+/* Responsive Layout (Max-Width: 600px) --- */
 @media (max-width: 600px) {
   header {
     flex-direction: column;
@@ -460,7 +286,7 @@ input[type="reset"]:hover {
   }
 
   nav ul {
-    flex-direction: column;  /* stack nav links vertically on mobile */
+    flex-direction: column;  /* Stack navigation menu elements vertically on narrow viewports */
   }
 
   nav ul li a {
@@ -469,11 +295,7 @@ input[type="reset"]:hover {
   }
 
   .card {
-    flex: 1 1 100%;          /* full-width cards on small screens */
+    flex: 1 1 100%;          /* Stack cards to take up full-width */
     max-width: 100%;
-  }
-
-  form {
-    padding: 1.2rem;
   }
 }
