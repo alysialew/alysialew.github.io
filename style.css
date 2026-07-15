@@ -1,245 +1,479 @@
-/* ==========================================================================
-   Alysia Lewis - IT-FPX3240 Web Development and JavaScript
-   Assessment 4 Stylesheet
-   ========================================================================== */
+/* =============================================================
+   style.css — Alysia Lewis Personal Portfolio
+   IT-FPX3240 Web Development and JavaScript
+   Assessments 3–10: External CSS Stylesheet
+   ============================================================= */
 
-/* --- Root & Basic Reset --- */
-* {
+/* --- 1. CSS Reset & Box Model ---
+   Remove default browser margins/padding; use border-box sizing
+   so padding is included in element width calculations. */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+/* --- 2. Root Color Variables ---
+   Color palette: dark terminal theme with green accents.
+   #0d0d0d = near-black background (terminal feel)
+   #1a1a1a = slightly lighter surface
+   #00ff88 = electric green accent (cybersecurity / hacker aesthetic)
+   #cccccc = light gray body text
+   #888888 = muted/secondary text
+   Error red and success green for form feedback. */
+:root {
+  --bg-dark:    #0d0d0d;
+  --bg-mid:     #1a1a1a;
+  --bg-light:   #222222;
+  --accent:     #00ff88;
+  --accent-dim: #00cc6a;
+  --text-main:  #cccccc;
+  --text-muted: #888888;
+  --border:     #333333;
+  --error:      #ff4444;
+  --success:    #00ff88;
+}
+
+/* --- 3. Typography & Body ---
+   Monospace font reinforces the terminal aesthetic.
+   Line-height 1.7 for comfortable reading. */
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  line-height: 1.7;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* --- 4. CSS Grid Page Layout (Assessment 5) ---
+   Full-page grid with named areas stacked vertically.
+   header → nav → main → footer */
+.page-wrapper {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* --- 5. Header ---
+   Banner area with logo, site title, and tagline.
+   Uppercase title with letter-spacing for a bold look. */
+header {
+  grid-area: header;
+  background-color: var(--bg-mid);
+  border-bottom: 2px solid var(--accent);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+header img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  object-fit: cover;
+}
+
+.header-text h1 {
+  font-size: 1.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.header-text p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* --- 6. Navigation Bar (Flexbox — Assessment 4) ---
+   Horizontal nav using Flexbox. Links centered with
+   hover/active states using accent background. */
+nav {
+  grid-area: nav;
+  background-color: var(--bg-mid);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Flexbox container for nav links */
+nav ul {
+  display: flex;              /* Flexbox: horizontal row */
+  flex-direction: row;        /* items flow left to right */
+  justify-content: center;    /* center the group */
+  align-items: center;
+  list-style: none;
+  gap: 0;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: 'Courier New', Courier, monospace; /* Monospaced font matching a cybersecurity terminal vibe */
-  background-color: #0d1117;
-  color: #c9d1d9;
-  line-height: 1.6;
-}
-
-/* Page Wrapper */
-.page-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Header styling */
-header {
-  display: flex;
-  align-items: center;
-  padding: 20px 0;
-  border-bottom: 2px solid #238636; /* Security green border */
-}
-
-header img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 20px;
-  border: 2px solid #238636;
-}
-
-.header-text h1 {
-  color: #58a6ff;
-  font-size: 2.2rem;
-}
-
-.header-text p {
-  color: #8b949e;
-}
-
-/* ==========================================================================
-   NAVIGATION BAR - CSS FLEXBOX LAYOUT (Assessment 4 Requirement)
-   ========================================================================== */
-nav {
-  background-color: #161b22;
-  margin: 20px 0;
-  border: 1px solid #30363d;
-  border-radius: 6px;
-}
-
-/* The <ul> acts as the Flex Container for the nav items */
-nav ul {
-  display: flex;               /* Activates Flexbox on the list container */
-  justify-content: center;     /* Centers the navigation items horizontally */
-  flex-wrap: wrap;             /* Allows items to wrap onto new lines on small screens */
-  list-style: none;            /* Removes default bullet points */
-  padding: 10px 0;
-}
-
-/* Style the flex items */
-nav li {
-  margin: 5px 15px;            /* Adds uniform spacing around each navigation link */
-}
-
-nav a {
-  color: #58a6ff;
+nav ul li a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-main);
   text-decoration: none;
-  font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-/* Highlight style for the active page */
-nav a.active, nav a:hover {
-  background-color: #238636;
-  color: #ffffff;
+/* Hover and active state for nav links */
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: var(--accent);
+  color: var(--bg-dark);
 }
 
-/* --- Main Content styling --- */
+/* --- 7. Main Content Area ---
+   Centered content with max-width and consistent padding. */
 main {
-  padding: 20px 0;
+  grid-area: main;
+  padding: 2.5rem 2rem;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* --- 8. Headings ---
+   Accent-colored headings; h2 has a bottom border separator. */
+h1, h2, h3 {
+  color: var(--accent);
+  margin-bottom: 0.6rem;
 }
 
 h2 {
-  color: #238636;
-  font-size: 1.6rem;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #30363d;
-  padding-bottom: 5px;
+  font-size: 1.4rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
+h3 {
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+/* --- 9. Paragraph & List Text ---
+   Comfortable body text spacing. */
 p {
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
+  color: var(--text-main);
 }
 
-blockquote {
-  border-left: 4px solid #58a6ff;
-  padding: 10px 20px;
-  margin: 20px 0;
-  background-color: #161b22;
-  font-style: italic;
-  color: #8b949e;
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-/* Unordered list inside main body styling */
-main ul {
-  list-style-position: inside;
-  margin-bottom: 20px;
+li {
+  margin-bottom: 0.4rem;
 }
 
-main li {
-  margin-bottom: 8px;
-}
-
-/* ==========================================================================
-   FEATURED ITEMS (CARDS) - CSS FLEXBOX LAYOUT (Assessment 4 Requirement)
-   ========================================================================== */
-/* The cards container acts as the Flex Container */
+/* --- 10. Feature Cards (Flexbox — Assessment 4) ---
+   Six+ card elements in a responsive Flexbox layout.
+   Cards wrap automatically as the viewport narrows. */
 .cards-container {
-  display: flex;               /* Activates Flexbox layout */
-  flex-wrap: wrap;             /* Instructs cards to wrap to a new line when space runs out */
-  justify-content: space-between; /* Evenly distributes remaining space between cards */
-  gap: 20px;                   /* Adds gap spacing between adjacent cards */
-  margin-top: 20px;
+  display: flex;              /* Flexbox: horizontal card row */
+  flex-wrap: wrap;            /* wrap to next line on narrow screens */
+  gap: 1.2rem;
+  margin-top: 1.5rem;
 }
 
-/* Individual card components acting as Flex Items */
 .card {
-  flex: 1 1 calc(33.333% - 20px); /* Flex growth, shrink, and initial basis set to fit 3 cards per row */
-  min-width: 280px;            /* Ensures cards don't shrink too small on narrow screens */
-  background-color: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;      /* Arranges content within each card vertically using Flexbox */
-  transition: transform 0.2s, border-color 0.2s;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.2rem;
+  flex: 1 1 260px;            /* grow/shrink, min width 260px */
+  max-width: 340px;
+  transition: border-color 0.2s, transform 0.2s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: #238636;
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
 .card img {
   width: 100%;
-  height: 180px;
+  height: 130px;
   object-fit: cover;
-}
-
-.card h3 {
-  color: #58a6ff;
-  padding: 15px 15px 5px 15px;
-  font-size: 1.2rem;
-}
-
-.card p {
-  color: #8b949e;
-  padding: 0 15px 15px 15px;
-  font-size: 0.9rem;
-  flex-grow: 1;                /* Forces cards on the same row to align heights evenly */
-}
-
-/* --- Contact Page Form Styling --- */
-form {
-  background-color: #161b22;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #30363d;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  color: #58a6ff;
-  font-weight: bold;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  background-color: #0d1117;
-  border: 1px solid #30363d;
   border-radius: 4px;
-  color: #c9d1d9;
-  font-family: inherit;
+  margin-bottom: 0.8rem;
+  border: 1px solid var(--border);
 }
 
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #238636;
+/* --- 11. Blockquote / Pull Quote ---
+   Styled callout with left accent border. */
+blockquote {
+  border-left: 4px solid var(--accent);
+  padding: 0.8rem 1.2rem;
+  margin: 1.5rem 0;
+  background-color: var(--bg-light);
+  color: var(--text-muted);
+  font-style: italic;
+  border-radius: 0 6px 6px 0;
 }
 
-button {
-  background-color: #238636;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  background-color: #2ea043;
-}
-
-/* --- Footer styling --- */
+/* --- 12. Footer ---
+   Sits in the footer grid area; small centered text. */
 footer {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid #30363d;
+  grid-area: footer;
+  background-color: var(--bg-mid);
+  border-top: 1px solid var(--border);
   text-align: center;
-  font-size: 0.85rem;
-  color: #8b949e;
+  padding: 1rem 2rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
 }
 
 footer a {
-  color: #58a6ff;
+  color: var(--accent);
   text-decoration: none;
 }
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* --- 13. Links ---
+   Global anchor styling with accent color. */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- 14. Images ---
+   Responsive images that never overflow their container. */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- 15. Resources List (Assessment 6) ---
+   Styles the JS-generated list on resources.html. */
+#list ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+#list ul li {
+  background-color: var(--bg-light);
+  border-left: 4px solid var(--accent);
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.6rem;
+  border-radius: 0 6px 6px 0;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+/* --- 16. HTML Form Styles (Assessments 7, 8, 9) ---
+   Positions and styles the contact form elements. */
+form {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 680px;
+  margin-top: 1.5rem;
+}
+
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+legend {
+  color: var(--accent);
+  font-weight: bold;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Radio and checkbox groups use Flexbox for inline layout */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-main);
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+/* Submit and reset buttons */
+button[type="submit"],
+button[type="reset"],
+input[type="submit"],
+input[type="reset"] {
+  background-color: var(--accent);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 0.8rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+  background-color: var(--accent-dim);
+  transform: translateY(-1px);
+}
+
+button[type="reset"]:hover,
+input[type="reset"]:hover {
+  background-color: var(--border);
+  color: var(--text-main);
+}
+
+/* --- 17. Validation Messages (Assessment 9) ---
+   Error messages in red, success messages in green. */
+.error-msg {
+  color: var(--error);
+  font-size: 0.85rem;
+  margin-top: -0.7rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.success-msg {
+  color: var(--success);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+#form-status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+/* --- 18. Weather Page Styles (Assessment 10) ---
+   Specific styling for weather form and results display. */
+#weather-results {
+  margin-top: 1.5rem;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: none; /* hidden until data loads */
+}
+
+#weather-results.visible {
+  display: block;
+}
+
+#weather-results h3 {
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+#weather-status {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* --- 19. Responsive Design ---
+   Media query for screens narrower than 600px:
+   header stacks vertically, nav goes vertical, cards go full width. */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;  /* stack nav links vertically on mobile */
+  }
+
+  nav ul li a {
+    text-align: center;
+    padding: 0.6rem 1rem;
+  }
+
+  .card {
+    flex: 1 1 100%;          /* full-width cards on small screens */
+    max-width: 100%;
+  }
+
+  form {
+    padding: 1.2rem;
+  }
 }
