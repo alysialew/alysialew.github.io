@@ -1,139 +1,122 @@
 <!DOCTYPE html>
-<!-- index.html — Alysia Lewis Personal Portfolio
-     IT-FPX3240 Web Development and JavaScript
-     Assessments 2–10: Home Page -->
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alysia Lewis | Cybersecurity Portfolio</title>
-  <!-- Link to shared external stylesheet (Assessment 3 & 4) -->
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the shared external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Alysia Lewis | Home</title>
 </head>
-<body>
-  <!-- Page wrapper -->
-  <div class="page-wrapper">
-
-    <!-- ===== HEADER ===== -->
-    <header>
-      <!-- Profile photo with alt text for accessibility -->
-      <img src="logo.png" alt="Photo of Alysia Lewis" />
-      <div class="header-text">
-        <h1>Alysia Lewis</h1>
-        <p>Cybersecurity Student &amp; Security+ Certified Analyst</p>
-      </div>
-    </header>
-
-    <!-- ===== NAVIGATION (Flexbox — Assessment 4) ===== -->
-    <!-- Unordered list inside <nav> styled with Flexbox in CSS -->
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="index.html" class="active">$ Home</a></li>
-        <li><a href="about.html">$ About</a></li>
-        <li><a href="contact.html">$ Contact</a></li>
-      </ul>
-    </nav>
-
-    <!-- ===== MAIN CONTENT ===== -->
-    <main>
-
-      <!-- About Me section -->
-      <h2>$ WHOAMI</h2>
-      <p>
-        My name is Alysia Lewis, and I am a cybersecurity student pursuing a
-        <strong>Bachelor of Science in Cybersecurity and Information Assurance</strong>
-        at Capella University. I hold CompTIA A+, Network+, Security+, and ITIL
-        certifications and continually expand my knowledge through hands-on projects,
-        independent research, and practical labs.
-      </p>
-
-      <!-- Pull-quote callout (blockquote styled in CSS) -->
-      <blockquote>
-        "Security is not a product, but a process." — Bruce Schneier
-      </blockquote>
-
-      <!-- Certifications section -->
-      <h2>$ CERTS</h2>
-      <ul>
-        <li>CompTIA Security+</li>
-        <li>CompTIA Network+</li>
-        <li>CompTIA A+</li>
-        <li>ITIL Foundation</li>
-      </ul>
-
-      <!-- Featured Projects six cards using Flexbox -->
-      <h2>$ PROJECTS</h2>
-      <p>
-        Hands-on cybersecurity projects demonstrating practical skills in
-        networking, scripting, and secure computing.
-      </p>
-
-      <!-- Cards container: Flexbox layout with flex-wrap -->
-      <div class="cards-container">
-
-        <!-- Card 1 -->
-        <div class="card">
-          <img src="Card1.png"
-               alt="Network cables and switch representing networking lab" />
-          <h3>Network Topology Lab</h3>
-          <p>Designed and simulated a secure LAN topology using Cisco Packet Tracer, applying subnetting and VLAN segmentation.</p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&q=80"
-               alt="Terminal screen with code representing Linux scripting" />
-          <h3>Linux Bash Scripting</h3>
-          <p>Developed automation scripts for log analysis and user account auditing on Ubuntu Server environments.</p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
-               alt="Lock icon on digital background representing security hardening" />
-          <h3>System Hardening</h3>
-          <p>Applied CIS Benchmark controls to a Windows 10 workstation, documenting before/after vulnerability scans with Nessus.</p>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
-               alt="Magnifying glass over code representing vulnerability scanning" />
-          <h3>Vulnerability Scanning</h3>
-          <p>Used Nmap and Nessus to perform network discovery and vulnerability assessments on a home lab environment.</p>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&q=80"
-               alt="Dashboard with charts representing SIEM log analysis" />
-          <h3>SIEM Log Analysis</h3>
-          <p>Ingested and analyzed Windows Event Logs in Splunk, creating dashboards to detect failed login attempts and anomalies.</p>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&q=80"
-               alt="Java code on screen representing Java programming project" />
-          <h3>Java Security App</h3>
-          <p>Built a Java console application implementing Caesar cipher encryption and basic input validation for a security course.</p>
-        </div>
-
-      </div><!-- end .cards-container -->
-
-      <!-- Exit section -->
-      <h2>$ EXIT</h2>
-      <p>Thank you for visiting my portfolio. Feel free to <a href="contact.html">get in touch</a>.</p>
-
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-      <p>&copy; 2026 Alysia Lewis &mdash; Capella University IT-FPX3240 |
-        <a href="https://github.com/alysialew" target="_blank" rel="noopener">GitHub</a>
-      </p>
-    </footer>
-
-  </div><!-- end .page-wrapper -->
+     
+     <body>
+          
+          <!-- Page wrapper -->
+          <div class="page-wrapper">
+               
+               <!-- Site Header -->
+               <header>
+                    
+                    <img src="logo.png" alt="Photo of Alysia Lewis">
+                    <div class="header-text">
+                         
+                         <h1>Alysia Lewis</h1>
+                         <p>Cybersecurity Student | Security+ Certified</p>
+                    </div>
+               
+               </header>
+               
+               <!-- Navigation Flexbox -->
+               <nav aria-label="Main navigation">
+                    <ul>
+                         <li><a href="index.html" class="active">Home</a></li>
+                         <li><a href="about.html">About</a></li>
+                         <li><a href="contact.html">Contact</a></li>
+                    </ul>
+               
+               </nav>
+               <!-- Main Content -->
+               <main>
+                    <h2>Welcome</h2>
+                    
+                    <p>
+                    Welcome to my personal portfolio website. I am currently pursuing a Bachelor of Science in Cybersecurity at Capella University while continuing to build practical skills in 
+                    networking, system security, and ethical hacking. I hold CompTIA A+, Network+, Security+, and ITIL 
+                    certifications and continually expand my knowledge through hands-on project independent research, and practical labs.
+                    </p>
+                    <blockquote>
+                    "Security is not a product, but a process."
+                    — Bruce Schneier
+                    </blockquote>
+                    <h2>Projects</h2>
+               
+               <p>
+                    Hands-on cybersecurity projects demonstrating practical skills in
+                    networking, scripting, and secure computing.
+               </p>
+               
+               <!-- Cards container: Flexbox layout with flex-wrap -->
+               <div class="cards-container">
+                    
+                    <!-- Card 1 -->
+                    <div class="card">
+                         <img src="Card1.png" alt="Network cables and switch representing networking lab">
+                         <h3>Network Topology Lab</h3>
+                         <p>Designed and simulated a secure LAN topology using Cisco Packet Tracer, applying subnetting and VLAN segmentation.</p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="card">
+                         <img src="Card2.png" alt="Terminal screen with code representing Linux scripting">
+                         <h3>Linux Bash Scripting</h3>
+                         <p>Developed automation scripts for log analysis and user account auditing on Ubuntu Server environments.</p>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="card">
+                         <img src="Card3.png" alt="Lock icon on digital background representing security hardening">
+                         <h3>System Hardening</h3>
+                         <p>Applied CIS Benchmark controls to a Windows 10 workstation, documenting before/after vulnerability scans with Nessus.</p>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="card">
+                         <img src="Card4.png" alt="Magnifying glass over code representing vulnerability scanning">
+                         <h3>Vulnerability Scanning</h3>
+                         <p>Used Nmap and Nessus to perform network discovery and vulnerability assessments on a home lab environment.</p>
+                    </div>
+                    
+                    <!-- Card 5 -->
+                    <div class="card">
+                         <img src="Card5.png" alt="Dashboard with charts representing SIEM log analysis">
+                         <h3>SIEM Log Analysis</h3>
+                         <p>Ingested and analyzed Windows Event Logs in Splunk, creating dashboards to detect failed login attempts and anomalies.</p>
+                    </div>
+                    
+                    <!-- Card 6 -->
+                    <div class="card">
+                         <img src="Card6.png" alt="Java code on screen representing Java programming project">
+                         <h3>Java Security App</h3>
+                         <p>Built a Java console application implementing Caesar cipher encryption and basic input validation for a security course.</p>
+                    </div>
+               </div><!-- end .cards-container -->
+               
+               <h2>End</h2>
+               
+               <p>Thank you for visiting my portfolio. Feel free to <a href="contact.html">get in touch</a>.</p>
+          
+          </main>
+          <!-- Site Footer -->
+          <footer>
+               
+               <p>&copy; 2026 Alysia Lewis</p>
+               
+          </footer>
+     
+     </div><!-- end .page-wrapper -->
+     
 </body>
+     
 </html>
