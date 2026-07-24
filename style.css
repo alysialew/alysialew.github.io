@@ -29,11 +29,47 @@ body {
   min-height: 100vh;
 }
 
-/* Page Layout */
+/* =====================================================
+   CSS GRID PAGE LAYOUT
+   Uses named grid areas for the page structure
+   ===================================================== */
 .page-wrapper {
+  display: grid;
+
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+
+  grid-template-rows: auto auto 1fr auto;
+
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
+
+  min-height: 100vh;
+}
+
+/* =====================================================
+   GRID AREA ASSIGNMENTS
+   Places page sections into named grid areas
+   ===================================================== */
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
 }
 
 /* Header */
@@ -278,7 +314,10 @@ footer {
   margin-top: 2rem;
 }
 
-/* Responsive Layout (Max-Width: 600px) --- */
+/* =====================================================
+   RESPONSIVE DESIGN
+   Prevents horizontal scrolling on small screens
+   ===================================================== */
 @media (max-width: 600px) {
   header {
     flex-direction: column;
