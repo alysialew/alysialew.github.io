@@ -29,10 +29,10 @@ body {
   min-height: 100vh;
 }
 
-/* =====================================================
+/*
    CSS GRID PAGE LAYOUT
    Uses named grid areas for the page structure
-   ===================================================== */
+ */
 .page-wrapper {
   display: grid;
 
@@ -51,10 +51,10 @@ body {
   min-height: 100vh;
 }
 
-/* =====================================================
+/*
    GRID AREA ASSIGNMENTS
    Places page sections into named grid areas
-   ===================================================== */
+ */
 
 header {
   grid-area: header;
@@ -314,10 +314,10 @@ footer {
   margin-top: 2rem;
 }
 
-/* =====================================================
+/*
    RESPONSIVE DESIGN
    Prevents horizontal scrolling on small screens
-   ===================================================== */
+ */
 @media (max-width: 600px) {
   header {
     flex-direction: column;
@@ -337,4 +337,31 @@ footer {
     flex: 1 1 100%;          /* Stack cards to take up full-width */
     max-width: 100%;
   }
+}
+
+/* Style the dynamically generated list on resources.html */
+#list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+#list ul li {
+  background-color: var(--bg-light);
+  border-left: 4px solid var(--accent);
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.6rem;
+  border-radius: 0 4px 4px 0;
+  transition: background-color 0.2s;
+}
+
+#list ul li a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+#list ul li a:hover {
+  text-decoration: underline;
+  color: var(--accent-dim);
 }
