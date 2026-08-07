@@ -1,86 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-     <meta charset="UTF-8" >
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-     <!-- Link to the shared external stylesheet -->
-     <link rel="stylesheet" href="style.css">
-     
-     <title>About | Alysia Lewis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Alysia Lewis</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-     
 <body>
-<div class="page-wrapper">
-     
-    <!-- Site Header -->
-    <header>
-    
-        
-<img src="logo.png" alt="Photo of Alysia Lewis" >
-<div class="header-text">
-     <h1>Alysia Lewis</h1>
-     <p>Cybersecurity Student | Security+ Certified</p>
-</div> 
+    <div class="page-wrapper">
 
-      
-     
-       
-    </header>
-    
-    <!-- Navigation Flexbox -->
-    <nav aria-label="Main navigation">
-    
-      <ul>
-      
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="resources.html">Resources</a></li>
-      </ul>
-      
-    </nav>
+        <!-- Header -->
+        <header>
+            <img src="logo.png" alt="Photo of Alysia Lewis">
+            <div class="header-text">
+                <h1>Alysia Lewis</h1>
+                <p>Cybersecurity Student | Security+ Certified</p>
+            </div>
+        </header>
 
-    <!-- Main Content -->
-    <main>
+        <!-- Navigation -->
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="resources.html">Resources</a></li>
+            </ul>
+        </nav>
 
-        <h2>About Me</h2>
+        <!-- Main Content -->
+        <main>
+            <h2>Contact Me</h2>
+            <p>
+                Have a question, collaboration idea, or want to connect? 
+                Fill out the form below and I'll get back to you.
+            </p>
+            
+            <!-- Form with id="webForm" and action="#" -->
+            <form id="webForm" action="#">
 
-        <p>
-            I am currently pursuing a Bachelor of Science in Cybersecurity at
-            Capella University. My interests include cybersecurity, networking,
-            vulnerability management, incident response, and security
-            operations.
-        </p>
+                <!-- Personal Information Fieldset -->
+                <fieldset>
+                    <legend>Personal Information</legend>
 
-        <h2>Education and Certifications</h2>
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                    
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
 
-        <ul>
-            <li>Capella University – B.S. Cybersecurity (In Progress)</li>
-            <li>CompTIA A+</li>
-            <li>CompTIA Network+</li>
-            <li>CompTIA Security+</li>
-            <li>ITIL Foundation v4</li>
-        </ul>
+                    <label for="toolUsed">Cybersecurity Tool Used (e.g., Wireshark)</label>
+                    <input list="tools" id="toolUsed" name="toolUsed" placeholder="Start typing a tool...">
+                    <datalist id="tools">
+                        <option value="Wireshark">
+                        <option value="Nmap">
+                        <option value="Metasploit">
+                        <option value="Burp Suite">
+                        <option value="Kali Linux">
+                        <option value="Nessus">
+                        <option value="Splunk">
+                        <option value="Snort">
+                    </datalist>
+                </fieldset>
 
-        <h2>Career Goals</h2>
+                <!-- Inquiry Type Fieldset -->
+                <fieldset>
+                    <legend>Type of Inquiry</legend>
 
-        <p>
-            My goal is to begin my career as a cybersecurity analyst where I
-            can continue learning while helping organizations protect their
-            systems and information.
-        </p>
+                    <label>
+                        <input type="radio" name="inquiryType" value="question" checked>
+                        General Question
+                    </label>
+                    <label>
+                        <input type="radio" name="inquiryType" value="project">
+                        Project Collaboration
+                    </label>
+                    <label>
+                        <input type="radio" name="inquiryType" value="mentorship">
+                        Mentorship Request
+                    </label>
+                </fieldset>
 
-    </main>
+                <!-- Contact Preferences Fieldset -->
+                <fieldset>
+                    <legend>Preferred Contact Method</legend>
 
-    <!-- Site Footer -->
-    <footer>
+                    <label>
+                        <input type="checkbox" name="contactPref" value="email">
+                        Email
+                    </label>
+                    <label>
+                        <input type="checkbox" name="contactPref" value="linkedin">
+                        LinkedIn
+                    </label>
+                    <label>
+                        <input type="checkbox" name="contactPref" value="call">
+                        Phone Call
+                    </label>
+                </fieldset>
 
-        <p>&copy; 2026 Alysia Lewis</p>
+                <!-- Experience Level Dropdown -->
+                <label for="experienceLevel">Your Experience Level:</label>
+                <select id="experienceLevel" name="experienceLevel">
+                    <option value="" disabled selected>Select your level</option>
+                    <option value="beginner">Beginner (Learning)</option>
+                    <option value="intermediate">Intermediate (Certified)</option>
+                    <option value="advanced">Advanced (Professional)</option>
+                    <option value="expert">Expert (Researcher/Instructor)</option>
+                </select>
 
-    </footer>
-</div><!-- end .page-wrapper -->
+                <!-- Message -->
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <!-- Submit and Reset Buttons -->
+                <button type="submit">Send Message</button>
+                <button type="reset">Reset Form</button>
+            </form>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Alysia Lewis</p>
+        </footer>
+
+    </div>
+    <!-- end .page-wrapper -->
 </body>
-
 </html>
