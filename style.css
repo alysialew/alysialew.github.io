@@ -365,3 +365,179 @@ footer {
   text-decoration: underline;
   color: var(--accent-dim);
 }
+
+/* Form container with subtle background and border */
+#webForm {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 680px;
+    margin-top: 1.8rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Fieldset: group related form controls */
+#webForm fieldset {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--bg-mid);
+}
+
+/* Legend: visually and semantically defines each section */
+#webForm legend {
+    color: var(--accent);
+    font-weight: bold;
+    padding: 0 0.5rem;
+    font-size: 1.05rem;
+    background-color: var(--bg-dark);
+    border-radius: 4px;
+}
+
+/* Labels: improve readability and accessibility */
+#webForm label {
+    display: block;
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+/* Input and select styling */
+#webForm input[type="text"],
+#webForm input[type="email"],
+#webForm select,
+#webForm textarea {
+    width: 100%;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+}
+
+/* Radio buttons and checkboxes: inline with label */
+#webForm input[type="radio"],
+#webForm input[type="checkbox"] {
+    margin-right: 0.4rem;
+}
+
+/* Button Layout */
+#webForm button {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 4px;
+    padding: 0.6rem 1.4rem;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+#webForm button[type="reset"] {
+    background-color: var(--bg-mid);
+    color: var(--text-muted);
+}
+
+#webForm button:hover {
+    opacity: 0.9;
+}
+
+#webForm button[type="submit"]:hover {
+    background-color: var(--accent-dim);
+}
+
+/* Form container with subtle background and border */
+#webForm {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 680px;
+    margin-top: 1.8rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Fieldset with group related form controls */
+#webForm fieldset {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--bg-mid);
+}
+
+/* Legend with visually and semantically defines each section */
+#webForm legend {
+    color: var(--accent);
+    font-weight: bold;
+    padding: 0 0.5rem;
+    font-size: 1.05rem;
+    background-color: var(--bg-dark);
+    border-radius: 4px;
+}
+
+/* Labels with improved readability and accessibility */
+#webForm label {
+    display: block;
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+/* Input and select styling */
+#webForm input[type="text"],
+#webForm input[type="email"],
+#webForm select,
+#webForm textarea {
+    width: 100%;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+}
+
+/* Radio buttons and checkboxes with inline with label */
+#webForm input[type="radio"],
+#webForm input[type="checkbox"] {
+    margin-right: 0.4rem;
+}
+
+/* Button Layout */
+#webForm button {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 4px;
+    padding: 0.6rem 1.4rem;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+#webForm button[type="reset"] {
+    background-color: var(--bg-mid);
+    color: var(--text-muted);
+}
+
+#webForm button:hover {
+    opacity: 0.9;
+}
+
+#webForm button[type="submit"]:hover {
+    background-color: var(--accent-dim);
+}
