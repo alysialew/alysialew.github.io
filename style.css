@@ -9,14 +9,14 @@
 
 /* Root Color Variables */
 :root {
-  --bg-dark:    #0d0d0d;
-  --bg-mid:     #1a1a1a;
-  --bg-light:   #222222;
-  --accent:     #00ff88;
-  --accent-dim: #00cc6a;
-  --text-main:  #cccccc;
-  --text-muted: #888888;
-  --border:     #333333;
+  --bg-dark:    #F6F6F6; /* page background (light gray) */
+  --bg-mid:     #FFFFF9; /* slightly warm off-white */
+  --bg-light:   #E2CDC7; /* light tan for cards and panels */
+  --accent:     #778CFF; /* primary accent (blue) */
+  --accent-dim: #FF95BE; /* secondary accent (pink) */
+  --text-main:  #0d0d0d; /* dark text for good contrast */
+  --text-muted: #778CFF; /* muted/secondary text using palette */
+  --border:     #E2CDC7; /* border color matching light panels */
 }
 
 /* Typography & Body */
