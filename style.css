@@ -1,367 +1,83 @@
-/* External CSS Stylesheet */
+/* ==================================================
+   CONTACT FORM STYLING
+   Assessment 7 Form Layout and Design
+   ================================================== */
 
-/* CSS Reset & Box Model */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Root Color Variables */
-:root {
-  --bg-dark:    #ffffff;
-  --bg-mid:     #ffffff;
-  --bg-light:   #ffffff;
-  --accent:     #0e076e;
-  --accent-dim: #deb652;
-  --text-main:  #294449;
-  --text-muted: #070707;
-  --border:     #021378;
-}
-
-/* Typography & Body */
-body {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem;
-  line-height: 1.7;
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  min-height: 100vh;
-}
-
-/*
-   CSS GRID PAGE LAYOUT
-   Uses named grid areas for the page structure
- */
-.page-wrapper {
-  display: grid;
-
-  grid-template-areas:
-    "header"
-    "nav"
-    "main"
-    "footer";
-
-  grid-template-rows: auto auto 1fr auto;
-
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1rem;
-
-  min-height: 100vh;
-}
-
-/*
-   GRID AREA ASSIGNMENTS
-   Places page sections into named grid areas
- */
-
-header {
-  grid-area: header;
-}
-
-nav {
-  grid-area: nav;
-}
-
-main {
-  grid-area: main;
-}
-
-footer {
-  grid-area: footer;
-}
-
-/* Header */
-header {
-  background-color: var(--bg-mid);
-  border-bottom: 2px solid var(--accent);
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-}
-
-header img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-  object-fit: cover;
-}
-
-.header-text h1 {
-  font-size: 1.6rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.header-text p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 0;
-}
-
-/* NAVIGATION BAR - CSS FLEXBOX LAYOUT */
-nav {
-  background-color: var(--bg-mid);
-  border-bottom: 1px solid var(--border);
-}
-
-/* Flexbox container: lines up list items horizontally and centers them */
-nav ul {
-  display: flex;              /* Establishes flex container for navigation links */
-  flex-direction: row;        /* Elements flow horizontally */
-  justify-content: center;    /* Centers navigation items along the main axis */
-  align-items: center;        /* Centers items vertically along the cross axis */
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li a {
-  display: block;
-  padding: 0.75rem 1.5rem;
-  color: var(--text-main);
-  text-decoration: none;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-/* Hover and active states using variable background accents */
-nav ul li a:hover,
-nav ul li a.active {
-  background-color: var(--accent);
-  color: var(--bg-dark);
-}
-
-/* Main Content Area */
-main {
-  padding: 2.5rem 0;
-}
-
-/* Headings & Typography */
-h1, h2, h3 {
-  color: var(--accent);
-  margin-bottom: 0.6rem;
-}
-
-h2 {
-  font-size: 1.4rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.4rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  font-size: 1.1rem;
-  color: var(--text-main);
-}
-
-p {
-  margin-bottom: 1rem;
-  color: var(--text-main);
-}
-
-ul, ol {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-li {
-  margin-bottom: 0.4rem;
-}
-
-/*FEATURED ITEMS */
-/* Flex Container */
-.cards-container {
-  display: flex;              /* flex container for child elements */
-  flex-wrap: wrap;            /* Allows card items to wrap to a new line as viewport narrows */
-  gap: 1.2rem;                /* Sets uniform gutter space between adjacent cards */
-  margin-top: 1.5rem;
-}
-
-/* Individual card elements acting as Flex Items */
-.card {
-  background-color: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.2rem;
-  flex: 1 1 260px;
-  max-width: 340px;
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.card:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-}
-
-.card h3 {
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.card img {
-  width: 100%;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 0.8rem;
-  border: 1px solid var(--border);
-}
-
-/* Blockquote */
-blockquote {
-  border-left: 4px solid var(--accent);
-  padding: 0.8rem 1.2rem;
-  margin: 1.5rem 0;
-  background-color: var(--bg-light);
-  color: var(--text-muted);
-  font-style: italic;
-  border-radius: 0 6px 6px 0;
-}
-
-/* Links */
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Contact Form Layout */
-form {
-  background-color: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 2rem;
-  max-width: 680px;
-  margin-top: 1.5rem;
-}
-
-fieldset {
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.2rem 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-legend {
-  color: var(--accent);
-  font-weight: bold;
-  padding: 0 0.5rem;
-  font-size: 1rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.3rem;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-  width: 100%;
-  background-color: var(--bg-dark);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  color: var(--text-main);
-  font-family: inherit;
-  font-size: 0.95rem;
-  padding: 0.5rem 0.75rem;
-  margin-bottom: 1rem;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-button[type="submit"] {
-  background-color: var(--accent);
-  color: var(--bg-dark);
-  border: none;
-  border-radius: 4px;
-  padding: 0.6rem 1.5rem;
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-button[type="submit"]:hover {
-  background-color: var(--accent-dim);
-}
-
-/* 13. Footer */
-footer {
-  background-color: var(--bg-mid);
-  border-top: 1px solid var(--border);
-  text-align: center;
-  padding: 1rem 2rem;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  margin-top: 2rem;
-}
-
-/*
-   RESPONSIVE DESIGN
-   Prevents horizontal scrolling on small screens
- */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  nav ul {
-    flex-direction: column;  /* Stack navigation menu elements vertically on narrow viewports */
-  }
-
-  nav ul li a {
-    text-align: center;
-    padding: 0.6rem 1rem;
-  }
-
-  .card {
-    flex: 1 1 100%;          /* Stack cards to take up full-width */
+#webForm {
+    width: 100%;
     max-width: 100%;
-  }
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
 }
 
-/* Style the dynamically generated list on resources.html */
-#list ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 1.5rem 0;
+#webForm fieldset {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--bg-mid);
 }
 
-#list ul li {
-  background-color: var(--bg-light);
-  border-left: 4px solid var(--accent);
-  padding: 0.8rem 1rem;
-  margin-bottom: 0.6rem;
-  border-radius: 0 4px 4px 0;
-  transition: background-color 0.2s;
+#webForm legend {
+    color: var(--accent);
+    font-weight: bold;
+    padding: 0 0.5rem;
 }
 
-#list ul li a {
-  color: var(--accent);
-  font-weight: 500;
-  text-decoration: none;
+#webForm label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
 }
 
-#list ul li a:hover {
-  text-decoration: underline;
-  color: var(--accent-dim);
+#webForm input[type="text"],
+#webForm input[type="email"],
+#webForm select,
+#webForm textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-main);
+    font-family: inherit;
+}
+
+#webForm textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+#webForm input[type="radio"],
+#webForm input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+#webForm button {
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    margin-right: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+#webForm button[type="submit"] {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+}
+
+#webForm button[type="submit"]:hover {
+    background-color: var(--accent-dim);
+}
+
+#webForm button[type="reset"] {
+    background-color: var(--bg-mid);
+    color: var(--text-main);
 }
