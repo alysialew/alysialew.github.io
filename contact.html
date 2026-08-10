@@ -36,84 +36,103 @@
             </p>
             
             <!-- Form with id="webForm" and action="#" -->
-            <form id="webForm" action="#">
 
-                <!-- Personal Information Fieldset -->
-                <fieldset>
-                    <legend> Information</legend>
 
-                    <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" required>
-                    
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
+<!-- Contact Form -->
+<form id="webForm" action="#">
 
-                    <label for="toolUsed">Need to verify my credentials?</label>
-                    <input list="tools" id="toolUsed" name="toolUsed" placeholder="">
-                    <datalist id="tools">
-                        <option value="Credential Verification">
-                        <option value="Education Verification">
-                        <option value="General Inquiry">
-                        <option value="Networking/Career Advice">
-                        <option value="Speaking Engagement Inquiry">
-                        <option value="Internship/Job Opportunity">
-                    </datalist>
-                </fieldset>
+    <!-- Contact Information -->
+    <fieldset>
+        <legend>Contact Information</legend>
 
-                <!-- Inquiry Type Fieldset -->
-                <fieldset>
-                    <legend>I am A...</legend>
+        <label for="fullName">Full Name *</label>
+        <input type="text" id="fullName" name="fullName" required>
 
-                    <label>
-                        <input type="radio" name="inquiryType" value="question" checked>
-                        Student
-                    </label>
-                    <label>
-                        <input type="radio" name="inquiryType" value="project">
-                        Company
-                    </label>
-                    <label>
-                        <input type="radio" name="inquiryType" value="mentorship">
-                        Individual
-                    </label>
-                </fieldset>
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required>
 
-                <!-- Contact Preferences Fieldset -->
-                <fieldset>
-                    <legend>Preferred Contact Method</legend>
+        <label for="organization">Organization</label>
+        <input type="text" id="organization" name="organization">
 
-                    <label>
-                        <input type="checkbox" name="contactPref" value="email">
-                        Email
-                    </label>
-                    <label>
-                        <input type="checkbox" name="contactPref" value="linkedin">
-                        LinkedIn
-                    </label>
-                    <label>
-                        <input type="checkbox" name="contactPref" value="call">
-                        Phone Call
-                    </label>
-                </fieldset>
+        <label for="inquiryTopic">Inquiry Topic</label>
+        <input list="topics" id="inquiryTopic" name="inquiryTopic">
 
-                <!-- Experience Level Dropdown -->
-                <label for="experienceLevel">Your Experience Level:</label>
-                <select id="experienceLevel" name="experienceLevel">
-                    <option value="" disabled selected>Select your level</option>
-                    <option value="beginner">Beginner (Learning)</option>
-                    <option value="intermediate">Intermediate (Certified)</option>
-                    <option value="advanced">Advanced (Professional)</option>
-                    <option value="expert">Expert (Researcher/Instructor)</option>
-                </select>
+        <datalist id="topics">
+            <option value="Credential Verification">
+            <option value="Education Verification">
+            <option value="Cybersecurity Career Advice">
+            <option value="Professional Networking">
+            <option value="Internship Opportunity">
+            <option value="Employment Opportunity">
+        </datalist>
+    </fieldset>
 
-                <!-- Message -->
-                <label for="message">Message *</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+    <!-- Visitor Type -->
+    <fieldset>
+        <legend>Visitor Type</legend>
 
-                <!-- Submit and Reset Buttons -->
-                <button type="submit">Send Message</button>
-                <button type="reset">Reset Form</button>
-            </form>
+        <label>
+            <input type="radio" name="visitorType" value="student" checked>
+            Student
+        </label>
+
+        <label>
+            <input type="radio" name="visitorType" value="recruiter">
+            Recruiter
+        </label>
+
+        <label>
+            <input type="radio" name="visitorType" value="professional">
+            IT Professional
+        </label>
+
+        <label>
+            <input type="radio" name="visitorType" value="organization">
+            Organization Representative
+        </label>
+    </fieldset>
+
+    <!-- Preferred Contact Methods -->
+    <fieldset>
+        <legend>Preferred Contact Method</legend>
+
+        <label>
+            <input type="checkbox" name="contactMethod" value="email">
+            Email
+        </label>
+
+        <label>
+            <input type="checkbox" name="contactMethod" value="linkedin">
+            LinkedIn
+        </label>
+
+        <label>
+            <input type="checkbox" name="contactMethod" value="phone">
+            Phone
+        </label>
+    </fieldset>
+
+    <!-- Experience Level Menu -->
+    <label for="experienceLevel">Experience Level</label>
+
+    <select id="experienceLevel" name="experienceLevel">
+        <option value="">Select Experience Level</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+        <option value="expert">Expert</option>
+    </select>
+
+    <!-- Message Area -->
+    <label for="message">Message *</label>
+    <textarea id="message" name="message" rows="6" required></textarea>
+
+    <!-- Form Buttons -->
+    <button type="submit">Submit</button>
+    <button type="reset">Clear Form</button>
+
+</form>
+  
         </main>
 
         <!-- Footer -->
