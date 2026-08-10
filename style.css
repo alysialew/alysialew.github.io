@@ -1,110 +1,87 @@
-/* Updated CSS: Inter font + refined professional color palette
-   - Replaces monospace with Inter for a clean, modern look
-   - Refines color variables to a cohesive, professional palette
-   - Keeps accessibility improvements (focus-visible, reduced-motion)
-   - Removes duplicates and consolidates form styles
-*/
+/* External CSS Stylesheet */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
-:root {
-  /* Colors: professional, neutral + deep blue accent */
-  --bg-page:    #F7FBFF; /* very light blue-gray */
-  --bg-mid:     #FFFFFF; /* white panels */
-  --bg-panel:   #F1F5F9; /* subtle panel background */
-  --accent:     #0F4C81; /* deep blue primary accent */
-  --accent-dim: #2978B5; /* lighter blue for hover */
-  --text-main:  #0F1724; /* dark slate text for strong contrast */
-  --text-muted: #6B7280; /* neutral muted text */
-  --border:     #E6EEF8; /* very subtle border */
-
-  /* Spacing & sizing */
-  --gap:        1.2rem;
-  --container-max-width: 1100px;
-  --radius:     8px;
-
-  /* Typography */
-  --font-sans:  'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-mono:  'Courier New', Courier, monospace; /* kept for code samples if needed */
-
-  /* Motion / transition */
-  --transition: 200ms ease;
-}
-
-/* Reset & Box Model */
+/* CSS Reset & Box Model */
 *, *::before, *::after {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Accessibility helper */
-.sr-only {
-  position: absolute !important;
-  height: 1px; width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
-  border: 0; padding: 0;
+/* Root Color Variables */
+:root {
+  --bg-dark:    #0d0d0d;
+  --bg-mid:     #1a1a1a;
+  --bg-light:   #222222;
+  --accent:     #00ff88;
+  --accent-dim: #00cc6a;
+  --text-main:  #cccccc;
+  --text-muted: #888888;
+  --border:     #333333;
 }
 
-/* Body & typography */
-html { font-size: 16px; }
+/* Typography & Body */
 body {
-  font-family: var(--font-sans);
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
-  line-height: 1.6;
-  background-color: var(--bg-page);
+  line-height: 1.7;
+  background-color: var(--bg-dark);
   color: var(--text-main);
   min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Layout: grid with named areas */
+/*
+   CSS GRID PAGE LAYOUT
+   Uses named grid areas for the page structure
+ */
 .page-wrapper {
   display: grid;
+
   grid-template-areas:
     "header"
     "nav"
     "main"
     "footer";
+
   grid-template-rows: auto auto 1fr auto;
-  gap: var(--gap);
-  max-width: var(--container-max-width);
+
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
+
   min-height: 100vh;
 }
 
-/* Desktop two-column at wider screens */
-@media (min-width: 900px) {
-  .page-wrapper {
-    grid-template-columns: 260px 1fr;
-    grid-template-areas:
-      "header header"
-      "nav main"
-      "footer footer";
-    grid-template-rows: auto 1fr auto;
-    gap: calc(var(--gap) * 1.25);
-  }
+/*
+   GRID AREA ASSIGNMENTS
+   Places page sections into named grid areas
+ */
+
+header {
+  grid-area: header;
 }
 
-/* Grid areas */
-header { grid-area: header; }
-nav    { grid-area: nav; }
-main   { grid-area: main; }
-footer { grid-area: footer; }
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
 
 /* Header */
 header {
   background-color: var(--bg-mid);
   border-bottom: 2px solid var(--accent);
-  padding: 1.5rem 1.5rem;
+  padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.2rem;
 }
+
 header img {
   width: 60px;
   height: 60px;
@@ -112,65 +89,65 @@ header img {
   border: 2px solid var(--accent);
   object-fit: cover;
 }
+
 .header-text h1 {
   font-size: 1.6rem;
-  letter-spacing: 0.06em;
-  text-transform: none;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--accent);
-  margin: 0;
-}
-.header-text p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin: 0;
 }
 
-/* Navigation */
+.header-text p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* NAVIGATION BAR - CSS FLEXBOX LAYOUT */
 nav {
   background-color: var(--bg-mid);
   border-bottom: 1px solid var(--border);
-  padding: 0.6rem 0;
 }
+
+/* Flexbox container: lines up list items horizontally and centers them */
 nav ul {
-  display: flex;
-  gap: 0.25rem;
-  justify-content: center;
-  align-items: center;
+  display: flex;              /* Establishes flex container for navigation links */
+  flex-direction: row;        /* Elements flow horizontally */
+  justify-content: center;    /* Centers navigation items along the main axis */
+  align-items: center;        /* Centers items vertically along the cross axis */
   list-style: none;
   margin: 0;
   padding: 0;
-  flex-wrap: wrap;
-}
-nav ul li a {
-  display: block;
-  padding: 0.6rem 1rem;
-  color: var(--text-main);
-  text-decoration: none;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-  border-radius: 6px;
-  transition: background-color var(--transition), color var(--transition), transform var(--transition);
-}
-nav ul li a:hover,
-nav ul li a:active,
-nav ul li a[aria-current="page"],
-nav ul li a.active {
-  background-color: var(--accent);
-  color: var(--bg-mid);
-  transform: translateY(-1px);
-}
-nav ul li a:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--accent) 25%, black 8%);
-  outline-offset: 3px;
 }
 
-/* Main content */
+nav ul li a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover and active states using variable background accents */
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: var(--accent);
+  color: var(--bg-dark);
+}
+
+/* Main Content Area */
 main {
   padding: 2.5rem 0;
 }
 
-/* Headings & typography */
-h1,h2,h3 { color: var(--accent); margin-bottom: 0.6rem; }
+/* Headings & Typography */
+h1, h2, h3 {
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
 h2 {
   font-size: 1.4rem;
   border-bottom: 1px solid var(--border);
@@ -178,38 +155,62 @@ h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
-h3 { font-size: 1.05rem; color: var(--text-main); }
-p { margin-bottom: 1rem; color: var(--text-main); }
-ul, ol { margin-left: 1.5rem; margin-bottom: 1rem; }
-li { margin-bottom: 0.4rem; }
 
-/* Cards */
+h3 {
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/*FEATURED ITEMS */
+/* Flex Container */
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap);
+  display: flex;              /* flex container for child elements */
+  flex-wrap: wrap;            /* Allows card items to wrap to a new line as viewport narrows */
+  gap: 1.2rem;                /* Sets uniform gutter space between adjacent cards */
   margin-top: 1.5rem;
 }
+
+/* Individual card elements acting as Flex Items */
 .card {
-  background-color: var(--bg-panel);
+  background-color: var(--bg-light);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 6px;
   padding: 1.2rem;
   flex: 1 1 260px;
-  max-width: 400px;
-  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  max-width: 340px;
+  transition: border-color 0.2s, transform 0.2s;
 }
+
 .card:hover {
   border-color: var(--accent);
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(15,76,129,0.08);
+  transform: translateY(-3px);
 }
-.card h3 { color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem; }
+
+.card h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
 .card img {
   width: 100%;
-  height: 240px;
+  height: 130px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 4px;
   margin-bottom: 0.8rem;
   border: 1px solid var(--border);
 }
@@ -219,119 +220,148 @@ blockquote {
   border-left: 4px solid var(--accent);
   padding: 0.8rem 1.2rem;
   margin: 1.5rem 0;
-  background-color: var(--bg-panel);
+  background-color: var(--bg-light);
   color: var(--text-muted);
   font-style: italic;
-  border-radius: 0 var(--radius) var(--radius) 0;
+  border-radius: 0 6px 6px 0;
 }
 
 /* Links */
-a { color: var(--accent); text-decoration: none; }
-a:hover, a:focus-visible { text-decoration: underline; }
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
 
-/* Forms (consolidated) */
-form,
-#webForm {
-  background-color: var(--bg-mid);
+a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Form Layout */
+form {
+  background-color: var(--bg-light);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 2rem;
   max-width: 680px;
   margin-top: 1.5rem;
-  font-family: var(--font-sans);
 }
+
 fieldset {
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 1.2rem 1.5rem;
   margin-bottom: 1.5rem;
-  background-color: var(--bg-panel);
 }
+
 legend {
   color: var(--accent);
-  font-weight: 600;
+  font-weight: bold;
   padding: 0 0.5rem;
   font-size: 1rem;
-  background-color: transparent;
 }
+
 label {
   display: block;
   margin-bottom: 0.3rem;
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
+
 input[type="text"],
 input[type="email"],
-select,
 textarea {
   width: 100%;
-  background-color: var(--bg-page);
+  background-color: var(--bg-dark);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 4px;
   color: var(--text-main);
   font-family: inherit;
   font-size: 0.95rem;
-  padding: 0.6rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   margin-bottom: 1rem;
 }
-textarea { resize: vertical; min-height: 100px; }
-input[type="radio"],
-input[type="checkbox"] { margin-right: 0.4rem; }
 
-/* Buttons */
-button[type="submit"],
-#webForm button {
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button[type="submit"] {
   background-color: var(--accent);
-  color: var(--bg-mid);
+  color: var(--bg-dark);
   border: none;
-  border-radius: 8px;
-  padding: 0.6rem 1.4rem;
+  border-radius: 4px;
+  padding: 0.6rem 1.5rem;
   font-family: inherit;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color var(--transition), transform var(--transition);
-}
-button[type="submit"]:hover,
-#webForm button[type="submit"]:hover {
-  background-color: var(--accent-dim);
-  transform: translateY(-1px);
-}
-#webForm button[type="reset"] {
-  background-color: var(--bg-panel);
-  color: var(--text-muted);
-}
-#webForm button:focus-visible,
-button:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--accent) 25%, black 8%);
-  outline-offset: 3px;
+  transition: background-color 0.2s;
 }
 
-/* Resources list */
-#list ul { list-style-type: none; padding: 0; margin: 1.5rem 0; }
+button[type="submit"]:hover {
+  background-color: var(--accent-dim);
+}
+
+/* 13. Footer */
+footer {
+  background-color: var(--bg-mid);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 2rem;
+}
+
+/*
+   RESPONSIVE DESIGN
+   Prevents horizontal scrolling on small screens
+ */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;  /* Stack navigation menu elements vertically on narrow viewports */
+  }
+
+  nav ul li a {
+    text-align: center;
+    padding: 0.6rem 1rem;
+  }
+
+  .card {
+    flex: 1 1 100%;          /* Stack cards to take up full-width */
+    max-width: 100%;
+  }
+}
+
+/* Style the dynamically generated list on resources.html */
+#list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
 #list ul li {
-  background-color: var(--bg-panel);
+  background-color: var(--bg-light);
   border-left: 4px solid var(--accent);
   padding: 0.8rem 1rem;
   margin-bottom: 0.6rem;
-  border-radius: 0 6px 6px 0;
-  transition: background-color var(--transition), transform var(--transition);
+  border-radius: 0 4px 4px 0;
+  transition: background-color 0.2s;
 }
+
 #list ul li a {
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
 }
-#list ul li a:hover { text-decoration: underline; color: var(--accent-dim); }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
-  header { flex-direction: column; text-align: center; }
-  nav ul { flex-direction: column; }
-  nav ul li a { text-align: center; padding: 0.6rem 1rem; }
-  .card { flex: 1 1 100%; max-width: 100%; }
-}
-
-/* Respect user preference for reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
+#list ul li a:hover {
+  text-decoration: underline;
+  color: var(--accent-dim);
 }
