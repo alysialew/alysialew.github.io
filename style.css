@@ -9,14 +9,14 @@
 
 /* Root Color Variables */
 :root {
-  --bg-dark:    #0d0d0d;
-  --bg-mid:     #1a1a1a;
-  --bg-light:   #222222;
-  --accent:     #00ff88;
-  --accent-dim: #00cc6a;
-  --text-main:  #cccccc;
-  --text-muted: #888888;
-  --border:     #333333;
+  --bg-dark:    #ffffff;
+  --bg-mid:     #ffffff;
+  --bg-light:   #ffffff;
+  --accent:     #0e076e;
+  --accent-dim: #deb652;
+  --text-main:  #294449;
+  --text-muted: #070707;
+  --border:     #021378;
 }
 
 /* Typography & Body */
