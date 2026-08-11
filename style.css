@@ -2,7 +2,6 @@
 
 /* External CSS Stylesheet */
 
-/* CSS Reset & Box Model */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
