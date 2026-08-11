@@ -53,27 +53,6 @@ body {
   min-height: 100vh;
 }
 
-/*
-   GRID AREA ASSIGNMENTS
-   Places page sections into named grid areas
- */
-
-header {
-  grid-area: header;
-}
-
-nav {
-  grid-area: nav;
-}
-
-main {
-  grid-area: main;
-}
-
-footer {
-  grid-area: footer;
-}
-
 /* Header */
 header {
   background-color: var(--bg-light);
@@ -85,10 +64,10 @@ header {
 }
 
 header img {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  border: 2px solid var(--accent);
+  border: 3px solid var(--accent);
   object-fit: cover;
 }
 
