@@ -376,7 +376,7 @@ footer {
 #webForm {
     background-color: var(--bg-light);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 0 4px 4px 0;
     padding: 2rem;
     max-width: 680px;
     margin-top: 1.8rem;
