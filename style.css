@@ -23,7 +23,7 @@
 
 /* Typography & Body */
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Playfair Display', Courier;
   font-size: 1rem;
   line-height: 1.7;
   background-color: var(--bg-light);
