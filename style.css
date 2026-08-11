@@ -1,3 +1,5 @@
+
+
 /* External CSS Stylesheet */
 
 /* CSS Reset & Box Model */
@@ -9,14 +11,16 @@
 
 /* Root Color Variables */
 :root {
-  --bg-dark:    #0d0d0d;
-  --bg-mid:     #1a1a1a;
-  --bg-light:   #222222;
-  --accent:     #00ff88;
-  --accent-dim: #00cc6a;
-  --text-main:  #cccccc;
-  --text-muted: #888888;
-  --border:     #333333;
+  --bg-dark:    #1E3A5F;      /* Navy */
+  --bg-mid:     #1E3A5F;      /* Navy */
+  --bg-light:   #FFFFFF;      /* Pure White */
+  --accent:     #9CAF88;      /* Sage Green */
+  --accent-dim: #8A9B79;      /* Darker Sage */
+  --text-main:  #1E3A5F;      /* Navy */
+  --text-muted: #475569;      /* Medium Slate */
+  --border:     #D1D5DB;      /* Light Gray */
+  --pink:       #E8D5E0;      /* Light Pink */
+  --pink-dim:   #D1C8D0;      /* Slightly darker light pink */
 }
 
 /* Typography & Body */
