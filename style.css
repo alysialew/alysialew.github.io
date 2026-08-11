@@ -11,8 +11,6 @@
 
 /* Root Color Variables */
 :root {
-  --bg-dark:    #FFFFFF;      /* Navy */
-  --bg-mid:     #FFFFFF;      /* Navy */
   --bg-light:   #FFFFFF;      /* Pure White */
   --accent:     #9CAF88;      /* Sage Green */
   --accent-dim: #8A9B79;      /* Darker Sage */
