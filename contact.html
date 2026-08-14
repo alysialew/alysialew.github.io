@@ -31,117 +31,113 @@
         <!-- Main Content -->
         <main>
             <h2>Contact Me</h2>
-            <p>
-                Fill out the form below for any questions you have about me:
-            </p>
+            <p>Fill out the form below for any questions you have about me:</p>
         </main>
-           
 
-<!-- Form with id="webForm" and action="#" -->
-<!-- Contact Form -->
-<form id="webForm" action="#">
+        <!-- Contact Form -->
+        <form id="webForm" action="#">
             
-    <!-- Contact Information -->
-    <fieldset>
-        <legend>Contact Information</legend>
+            <!-- Contact Information -->
+            <fieldset>
+                <legend>Contact Information</legend>
 
-        <label for="fullName">Full Name *</label>
-        <input type="text" id="fullName" name="fullName" required>
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" 
+                       required minlength="2" maxlength="50">
+                <span id="fullNameError" class="error"></span>
 
-        <label for="email">Email Address *</label>
-        <input type="email" id="email" name="email" required>
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+                <span id="emailError" class="error"></span>
 
-        <label for="organization">Organization</label>
-        <input type="text" id="organization" name="organization">
+                <label for="organization">Organization</label>
+                <input type="text" id="organization" name="organization">
 
-        <label for="inquiryTopic">Inquiry Topic</label>
-        <input list="topics" id="inquiryTopic" name="inquiryTopic">
+                <label for="inquiryTopic">Inquiry Topic</label>
+                <input list="topics" id="inquiryTopic" name="inquiryTopic">
+                <datalist id="topics">
+                    <option value="Credential Verification">
+                    <option value="Education Verification">
+                    <option value="Cybersecurity Career Advice">
+                    <option value="Professional Networking">
+                    <option value="Internship Opportunity">
+                    <option value="Employment Opportunity">
+                </datalist>
+            </fieldset>
 
-        <datalist id="topics">
-            <option value="Credential Verification">
-            <option value="Education Verification">
-            <option value="Cybersecurity Career Advice">
-            <option value="Professional Networking">
-            <option value="Internship Opportunity">
-            <option value="Employment Opportunity">
-        </datalist>
-    </fieldset>
+            <!-- Visitor Type -->
+            <fieldset>
+                <legend>Visitor Type</legend>
+                <label>
+                    <input type="radio" name="visitorType" value="student" checked>
+                    Student
+                </label>
+                <label>
+                    <input type="radio" name="visitorType" value="recruiter">
+                    Recruiter
+                </label>
+                <label>
+                    <input type="radio" name="visitorType" value="professional">
+                    IT Professional
+                </label>
+                <label>
+                    <input type="radio" name="visitorType" value="organization">
+                    Organization Representative
+                </label>
+            </fieldset>
 
-    <!-- Visitor Type -->
-    <fieldset>
-        <legend>Visitor Type</legend>
- 
-        <label>
-            <input type="radio" name="visitorType" value="student" checked>
-            Student
-        </label>
+            <!-- Preferred Contact Methods -->
+            <fieldset>
+                <legend>Preferred Contact Method</legend>
+                <label>
+                    <input type="checkbox" name="contactMethod" value="email">
+                    Email
+                </label>
+                <label>
+                    <input type="checkbox" name="contactMethod" value="linkedin">
+                    LinkedIn
+                </label>
+                <label>
+                    <input type="checkbox" name="contactMethod" value="phone">
+                    Phone
+                </label>
+            </fieldset>
 
-        <label>
-            <input type="radio" name="visitorType" value="recruiter">
-            Recruiter
-        </label>
+            <!-- Experience Level -->
+            <label for="experienceLevel">Experience Level</label>
+            <select id="experienceLevel" name="experienceLevel">
+                <option value="">Select Experience Level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+                <option value="expert">Expert</option>
+            </select>
 
-        <label>
-            <input type="radio" name="visitorType" value="professional">
-            IT Professional
-        </label>
+            <!-- Message Area -->
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="6" 
+                      required minlength="10"></textarea>
+            <span id="messageError" class="error"></span>
 
-        <label>
-            <input type="radio" name="visitorType" value="organization">
-            Organization Representative
-        </label>
-    </fieldset>
+            <!-- Form Buttons -->
+            <button type="submit">Submit</button>
+            <button type="reset">Clear Form</button>
 
-    <!-- Preferred Contact Methods -->
-    <fieldset>
-        <legend>Preferred Contact Method</legend>
+            <!-- Overall validation message -->
+            <div id="formMessage" class="form-message"></div>
+        </form>
 
-        <label>
-            <input type="checkbox" name="contactMethod" value="email">
-            Email
-        </label>
-
-        <label>
-            <input type="checkbox" name="contactMethod" value="linkedin">
-            LinkedIn
-        </label>
-
-        <label>
-            <input type="checkbox" name="contactMethod" value="phone">
-            Phone
-        </label>
-    </fieldset>
-
-    <!-- Experience Level Menu -->
-    <label for="experienceLevel">Experience Level</label>
-
-    <select id="experienceLevel" name="experienceLevel">
-        <option value="">Select Experience Level</option>
-        <option value="beginner">Beginner</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="advanced">Advanced</option>
-        <option value="expert">Expert</option>
-    </select>
-
-    <!-- Message Area -->
-    <label for="message">Message *</label>
-    <textarea id="message" name="message" rows="6" required></textarea>
-    
-
-        
-    <!-- Form Buttons -->
-    <button type="submit">Submit</button>
-    <button type="reset">Clear Form</button>
-</form>
         <div id="output"></div>
+
         <!-- Footer -->
         <footer>
             <p>&copy; 2026 Alysia Lewis</p>
         </footer>
 
     </div>
-    <!-- end .page-wrapper -->
-    <!-- Link to validation script -->
+
+    <!-- Scripts (validation first, then original form.js) -->
+    <script src="validation.js"></script>
     <script src="form.js"></script>
 </body>
 </html>
