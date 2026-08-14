@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // === Display formatted output ===
         outputDiv.innerHTML = `
             <div class="submission-summary">
-                <h3>✅ Thank You, ${fullName}!</h3>
+                <h3>Thank You, ${fullName}!</h3>
                 <p><strong>Email:</strong> ${email}</p>
                 ${organization ? `<p><strong>Organization:</strong> ${organization}</p>` : ''}
                 ${inquiryTopic ? `<p><strong>Inquiry Topic:</strong> ${inquiryTopic}</p>` : ''}
