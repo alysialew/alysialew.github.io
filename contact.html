@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - IT-FPX3240</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Contact Form</h1>
+            <p>Please fill out the form below to get in touch.</p>
+        </header>
+
+        <form id="webForm" action="#" method="post" novalidate>
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required minlength="2" maxlength="50" placeholder="Jane Doe">
+            <span id="fullNameError" class="error"></span>
+
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="example@domain.com">
+            <span id="emailError" class="error"></span>
+
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+            <span id="phoneError" class="error"></span>
+
+            <fieldset>
                 <legend>Visitor Type</legend>
                 <label>
                     <input type="radio" name="visitorType" value="student" checked>
@@ -18,7 +47,6 @@
                 </label>
             </fieldset>
 
-            <!-- Preferred Contact Methods -->
             <fieldset>
                 <legend>Preferred Contact Method</legend>
                 <label>
@@ -35,7 +63,6 @@
                 </label>
             </fieldset>
 
-            <!-- Experience Level -->
             <label for="experienceLevel">Experience Level</label>
             <select id="experienceLevel" name="experienceLevel">
                 <option value="">Select Experience Level</option>
@@ -45,30 +72,24 @@
                 <option value="expert">Expert</option>
             </select>
 
-            <!-- Message Area -->
             <label for="message">Message *</label>
-            <textarea id="message" name="message" rows="6" 
-                      required minlength="10"></textarea>
+            <textarea id="message" name="message" rows="6" required minlength="10" placeholder="Enter your message here..."></textarea>
             <span id="messageError" class="error"></span>
 
-            <!-- Form Buttons -->
             <button type="submit">Submit</button>
             <button type="reset">Clear Form</button>
 
-            <!-- Overall validation message -->
             <div id="formMessage" class="form-message"></div>
         </form>
 
         <div id="output"></div>
 
-        <!-- Footer -->
         <footer>
             <p>&copy; 2026 Alysia Lewis</p>
         </footer>
 
     </div>
 
-    <!-- Scripts (validation first, then original form.js) -->
     <script src="validation.js"></script>
     <script src="form.js"></script>
 </body>
