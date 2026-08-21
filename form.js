@@ -1,85 +1,90 @@
-// form.js
-// DOM is fully loaded before running script
-document.addEventListener('DOMContentLoaded', function () {
-    // Get the form by ID
-    const form = document.getElementById('webForm');
+// form.js — Alysia Lewis Personal Portfolio
+// IT-FPX3240 Web Development and JavaScript
+// Assessment 8: JavaScript Form Data Reading and Display
 
-    // Get output div to display submitted data
-    const outputDiv = document.getElementById('output');
+// --- Get references to form input elements ---
+// Using getElementById() to access each named field
+const fullNameInput    = document.getElementById("fullName");
+const emailInput       = document.getElementById("email");
+const phoneInput       = document.getElementById("phone");
+const organizationInput= document.getElementById("organization");
+const contactMethodSel = document.getElementById("contactMethod");
+const messageInput     = document.getElementById("message");
 
-    // Add event listener for form submission
-    form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent page reload
+// Output area where formatted results will be displayed below the form
+const formOutput = document.getElementById("form-output");
 
-        // Clear previous output
-        outputDiv.innerHTML = '';
+// --- Function: displayFormData ---
+// Reads all form inputs and displays them in formatted output on the page.
+// Triggered when the user clicks the Submit button.
+function displayFormData(event) {
 
-        // === Read form values ===
+  // Prevent the default form submission (page reload)
+  event.preventDefault();
 
-        // Text inputs
-        const fullName = document.getElementById('fullName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const organization = document.getElementById('organization').value.trim();
-        const inquiryTopic = document.getElementById('inquiryTopic').value.trim();
+  // Log that the function was triggered
+  console.log("displayFormData() triggered by form submit event.");
 
-        // Radio buttons: Visitor Type
-        const visitorTypeRadios = document.getElementsByName('visitorType');
-        let visitorType = '';
-        for (const radio of visitorTypeRadios) {
-            if (radio.checked) {
-                visitorType = radio.value;
-                break;
-            }
-        }
+  // --- Read text field values using getElementById() ---
+  let name         = fullNameInput.value.trim();
+  let email        = emailInput.value.trim();
+  let phone        = phoneInput.value.trim() || "Not provided";
+  let organization = organizationInput.value.trim() || "Not provided";
+  let message      = messageInput.value.trim();
 
-        // Checkboxes: Preferred Contact Methods
-        const contactMethodCheckboxes = document.getElementsByName('contactMethod');
-        const selectedMethods = [];
-        for (const checkbox of contactMethodCheckboxes) {
-            if (checkbox.checked) {
-                selectedMethods.push(checkbox.value);
-            }
-        }
+  // --- Read selected contact method from <select> ---
+  let contactMethod = contactMethodSel.value || "Not selected";
 
-        // Dropdown: Experience Level
-        const experienceLevel = document.getElementById('experienceLevel').value;
+  // Log the text field values to the console
+  console.log("Name: " + name + " | Email: " + email + " | Phone: " + phone);
 
-        // Textarea: Message
-        const message = document.getElementById('message').value.trim();
-
-        // Log data to console for debugging
-        console.log({
-            fullName,
-            email,
-            organization,
-            inquiryTopic,
-            visitorType,
-            selectedMethods,
-            experienceLevel,
-            message
-        });
-
-        // === Display formatted output ===
-        outputDiv.innerHTML = `
-            <div class="submission-summary">
-                <h3>Thank You, ${fullName}!</h3>
-                <p><strong>Email:</strong> ${email}</p>
-                ${organization ? `<p><strong>Organization:</strong> ${organization}</p>` : ''}
-                ${inquiryTopic ? `<p><strong>Inquiry Topic:</strong> ${inquiryTopic}</p>` : ''}
-                <p><strong>Visitor Type:</strong> ${capitalize(visitorType)}</p>
-                <p><strong>Contact Methods:</strong> ${selectedMethods.length > 0 ? selectedMethods.map(capitalize).join(', ') : 'Not specified'}</p>
-                <p><strong>Experience Level:</strong> ${capitalize(experienceLevel)}</p>
-                <p><strong>Your Message:</strong><br><em>"${message}"</em></p>
-            </div>
-        `;
-
-        // Optionally reset the form after submission
-        // form.reset();
-    });
-
-    // Utility function to capitalize words
-    function capitalize(str) {
-        if (!str) return '';
-        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  // --- Read radio button selection using getElementsByName() ---
+  let reasonInputs = document.getElementsByName("reason");
+  let selectedReason = "Not selected";
+  for (let i = 0; i < reasonInputs.length; i++) {
+    if (reasonInputs[i].checked) {
+      selectedReason = reasonInputs[i].value;
+      break; // Stop once the checked radio is found
     }
-});
+  }
+  console.log("Selected reason: " + selectedReason);
+
+  // --- Read checkbox selections using getElementsByName() ---
+  let interestInputs = document.getElementsByName("interests");
+  let selectedInterests = [];
+  for (let i = 0; i < interestInputs.length; i++) {
+    if (interestInputs[i].checked) {
+      selectedInterests.push(interestInputs[i].value);
+    }
+  }
+  let interestsDisplay = selectedInterests.length > 0
+    ? selectedInterests.join(", ")
+    : "None selected";
+  console.log("Selected interests: " + interestsDisplay);
+
+  // --- Build formatted HTML output string ---
+  let outputHTML = "<h3>$ Submission Summary</h3>";
+  outputHTML += "<ul>";
+  outputHTML += "<li><strong>Name:</strong> "             + name             + "</li>";
+  outputHTML += "<li><strong>Email:</strong> "            + email            + "</li>";
+  outputHTML += "<li><strong>Phone:</strong> "            + phone            + "</li>";
+  outputHTML += "<li><strong>Organization:</strong> "     + organization     + "</li>";
+  outputHTML += "<li><strong>Reason:</strong> "           + selectedReason   + "</li>";
+  outputHTML += "<li><strong>Interests:</strong> "        + interestsDisplay + "</li>";
+  outputHTML += "<li><strong>Contact Method:</strong> "   + contactMethod    + "</li>";
+  outputHTML += "<li><strong>Message:</strong> "          + message          + "</li>";
+  outputHTML += "</ul>";
+
+  // Insert the formatted output into the output div
+  formOutput.innerHTML = outputHTML;
+
+  console.log("Form data displayed successfully in #form-output.");
+}
+
+// --- Event Handler ---
+// Attach displayFormData to the form's submit event.
+// Note: validation.js also listens to submit; both run in order.
+const webForm = document.getElementById("webForm");
+if (webForm) {
+  webForm.addEventListener("submit", displayFormData);
+};
