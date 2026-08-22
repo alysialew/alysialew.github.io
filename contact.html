@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - IT-FPX3240</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -14,6 +14,7 @@
             <p>Please fill out the form below to get in touch.</p>
         </header>
 
+        <!-- Note the id="webForm" and novalidate attributes -->
         <form id="webForm" action="#" method="post" novalidate>
             <label for="fullName">Full Name *</label>
             <input type="text" id="fullName" name="fullName" required minlength="2" maxlength="50" placeholder="Jane Doe">
@@ -24,42 +25,35 @@
             <span id="emailError" class="error"></span>
 
             <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+            <input type="tel" id="phone" name="phone" required pattern="[1, 4, 6-12]{3}-[1, 4, 6-12]{3}-[1, 4, 6-12]{4}" placeholder="123-456-7890">
             <span id="phoneError" class="error"></span>
 
             <fieldset>
                 <legend>Visitor Type</legend>
                 <label>
-                    <input type="radio" name="visitorType" value="student" checked>
-                    Student
+                    <input type="radio" name="visitorType" value="student" checked> Student
                 </label>
                 <label>
-                    <input type="radio" name="visitorType" value="recruiter">
-                    Recruiter
+                    <input type="radio" name="visitorType" value="recruiter"> Recruiter
                 </label>
                 <label>
-                    <input type="radio" name="visitorType" value="professional">
-                    IT Professional
+                    <input type="radio" name="visitorType" value="professional"> IT Professional
                 </label>
                 <label>
-                    <input type="radio" name="visitorType" value="organization">
-                    Organization Representative
+                    <input type="radio" name="visitorType" value="organization"> Organization Representative
                 </label>
             </fieldset>
 
             <fieldset>
                 <legend>Preferred Contact Method</legend>
                 <label>
-                    <input type="checkbox" name="contactMethod" value="email">
-                    Email
+                    <input type="checkbox" name="contactMethod" value="email"> Email
                 </label>
                 <label>
-                    <input type="checkbox" name="contactMethod" value="linkedin">
-                    LinkedIn
+                    <input type="checkbox" name="contactMethod" value="linkedin"> LinkedIn
                 </label>
                 <label>
-                    <input type="checkbox" name="contactMethod" value="phone">
-                    Phone
+                    <input type="checkbox" name="contactMethod" value="phone"> Phone
                 </label>
             </fieldset>
 
@@ -79,9 +73,11 @@
             <button type="submit">Submit</button>
             <button type="reset">Clear Form</button>
 
+            <!-- Overall status message container -->
             <div id="formMessage" class="form-message"></div>
         </form>
 
+        <!-- Form Output area managed by form.js -->
         <div id="output"></div>
 
         <footer>
@@ -90,6 +86,7 @@
 
     </div>
 
+    <!-- Script execution order is critical. validation.js must run and intercept before form.js processes -->
     <script src="validation.js"></script>
     <script src="form.js"></script>
 </body>
