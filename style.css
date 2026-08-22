@@ -1,358 +1,579 @@
-css
-/* External CSS Stylesheet */
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* =========
+   CSS
+   ========= */
+*, *::before, *::after { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
 /* Root Color Variables */
 :root {
-  --bg-light:   #FFFFFF;      /* Pure White */
-  --accent:     #9CAF88;      /* Sage Green */
-  --accent-dim: #8A9B79;      /* lighter Sage */
-  --text-main:  #1E3A5F;      /* Navy */
-  --text-muted: #475569;      /* Medium Slate */
-  --border:     #D1D5DB;      /* Light Gray */
-  --pink:       #E8D5E0;      /* Light Pink */
-  --pink-dim:   #D1C8D0;      /* Slightly darker light pink */
+    --bg-light:   #FFFFFF;      /* Pure White Base */
+    --accent:     #9CAF88;      /* Sage Green Main Theme */
+    --accent-dim: #8A9B79;      /* Darker Sage for Hovers */
+    --text-main:  #1E3A5F;      /* Deep Navy for Primary Text & Contrast */
+    --text-muted: #475569;      /* Medium Slate for Muted Elements */
+    --border:     #D1D5DB;      /* Light Gray for borders and dividers */
+    --pink:       #E8D5E0;      /* Soft Light Pink for specialized highlights */
+    --pink-dim:   #D1C8D0;      /* Slate-Pink accent hover */
 }
 
-/* Typography & Body */
-body {
-  font-family: 'Playfair Display', Courier;
-  font-size: 1rem;
-  line-height: 1.7;
-  background-color: var(--bg-light);
-  color: var(--text-main);
-  min-height: 100vh;
+/* Base Typography & Color Contrast */
+body { 
+    font-family: 'Playfair Display', 'Georgia', serif; 
+    font-size: 1rem; 
+    line-height: 1.7; 
+    background-color: var(--bg-light); 
+    color: var(--text-main); 
+    min-height: 100vh; 
 }
 
-/*
-   CSS GRID PAGE LAYOUT
-   Uses named grid areas for the page structure
- */
-.page-wrapper {
-  display: grid;
-
-  grid-template-areas:
-    "header"
-    "nav"
-    "main"
-    "footer";
-
-  grid-template-rows: auto auto 1fr auto;
-
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1rem;
-
-  min-height: 100vh;
+/* page configuration with named areas */
+.container, .page-wrapper { 
+    display: grid;
+    grid-template-areas: 
+        "header" 
+        "nav" 
+        "main" 
+        "footer";
+    grid-template-rows: auto auto 1fr auto;
+    max-width: 1100px; 
+    margin: 0 auto; 
+    padding: 0 1rem;
+    min-height: 100vh; 
 }
 
 /* Header */
-header {
-  background-color: var(--bg-light);
-  border-bottom: 2px solid var(--accent);
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
+header { 
+    grid-area: header;
+    background-color: var(--bg-light); 
+    border-bottom: 2px solid var(--accent); 
+    padding: 1.5rem 2rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 1.2rem; 
 }
 
-header img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 3px solid var(--accent);
-  object-fit: cover;
+nav { 
+    grid-area: nav;
+    background-color: var(--bg-light); 
+    border-bottom: 1px solid var(--border); 
+}
+/* Main Content Area */
+main { 
+    grid-area: main;
+    padding: 2.5rem 0; 
 }
 
-.header-text h1 {
-  font-size: 1.6rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
+footer { 
+    grid-area: footer;
+    background-color: var(--bg-light); 
+    border-top: 1px solid var(--border); 
+    text-align: center; 
+    padding: 1rem 2rem; 
+    font-size: 0.82rem; 
+    color: var(--text-muted); 
+    margin-top: 2rem; 
 }
 
-.header-text p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 0;
+/* =================
+   3. Header Design
+   ================= */
+header img { 
+    width: 90px; 
+    height: 90px; 
+    border-radius: 50%; 
+    border: 3px solid var(--accent); 
+    object-fit: cover; 
 }
 
-/* NAVIGATION BAR - CSS FLEXBOX LAYOUT */
-nav {
-  background-color: var(--bg-light);
-  border-bottom: 1px solid var(--border);
+.header-text h1 { 
+    font-size: 1.6rem; 
+    letter-spacing: 0.12em; 
+    text-transform: uppercase; 
+    color: var(--accent); 
+}
+
+.header-text p { 
+    font-size: 0.85rem; 
+    color: var(--text-muted); 
+    margin-bottom: 0; 
 }
 
 /* Flexbox container: lines up list items horizontally and centers them */
+
 nav ul {
-  display: flex;              /* Establishes flex container for navigation links */
-  flex-direction: row;        /* Elements flow horizontally */
-  justify-content: center;    /* Centers navigation items along the main axis */
-  align-items: center;        /* Centers items vertically along the cross axis */
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    display: flex;              /* Establishes flex container for navigation list */
+    flex-direction: row;        /* Elements flow horizontally */
+    justify-content: center;    /* Centers navigation items along main horizontal axis */
+    align-items: center;        /* Centers navigation items vertically */
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
 }
 
-nav ul li a {
-  display: block;
-  padding: 0.75rem 1.5rem;
-  color: var(--text-main);
-  text-decoration: none;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  transition: background-color 0.2s, color 0.2s;
+nav ul li a { 
+    display: block; 
+    padding: 0.75rem 1.5rem; 
+    color: var(--text-main); 
+    text-decoration: none; 
+    font-size: 0.9rem; 
+    letter-spacing: 0.05em; 
+    transition: background-color 0.2s, color 0.2s; 
 }
 
-/* Hover and active states using variable background accents */
-nav ul li a:hover,
-nav ul li a.active {
-  background-color: var(--accent);
-  color: var(--bg-light);
+/* Active and hover states using variable background accents */
+nav ul li a:hover, 
+nav ul li a.active { 
+    background-color: var(--accent); 
+    color: var(--bg-light); 
 }
 
-/* Main Content Area */
-main {
-  padding: 2.5rem 0;
+/* ==========================================================================
+   5. Headings & Core Layout Typography 
+   ========================================================================== */
+h1, h2, h3 { 
+    color: var(--accent); 
+    margin-bottom: 0.6rem; 
 }
 
-/* Headings & Typography */
-h1, h2, h3 {
-  color: var(--accent);
-  margin-bottom: 0.6rem;
+h2 { 
+    font-size: 1.4rem; 
+    border-bottom: 1px solid var(--border); 
+    padding-bottom: 0.4rem; 
+    margin-top: 2rem; 
+    margin-bottom: 1rem; 
 }
 
-h2 {
-  font-size: 1.4rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.4rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+h3 { 
+    font-size: 1.1rem; 
+    color: var(--text-main); 
 }
 
-h3 {
-  font-size: 1.1rem;
-  color: var(--text-main);
+p { 
+    margin-bottom: 1rem; 
+    color: var(--text-main); 
 }
 
-p {
-  margin-bottom: 1rem;
-  color: var(--text-main);
+ul, ol { 
+    margin-left: 1.5rem; 
+    margin-bottom: 1rem; 
 }
 
-ul, ol {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
+li { 
+    margin-bottom: 0.4rem; 
 }
 
-li {
-  margin-bottom: 0.4rem;
+/* Custom link properties */
+a { 
+    color: var(--accent); 
+    text-decoration: none; 
+    transition: color 0.2s;
 }
 
-/*FEATURED ITEMS */
-/* Flex Container */
+a:hover { 
+    text-decoration: underline; 
+    color: var(--accent-dim);
+}
+
+/* Blockquote Highlights */
+blockquote { 
+    border-left: 4px solid var(--accent); 
+    padding: 0.8rem 1.2rem; 
+    margin: 1.5rem 0; 
+    background-color: #fcfcfc; 
+    color: var(--text-muted); 
+    font-style: italic; 
+    border-radius: 0 6px 6px 0; 
+}
+
+/* ==========================================================================
+   6. Featured Elements Cards - Responsive CSS Flexbox
+   ========================================================================== */
+/* Flex container dynamically wraps card structures (Assessment 4 - Criterion 4) */
 .cards-container {
-  display: flex;              /* flex container for child elements */
-  flex-wrap: wrap;            /* Allows card items to wrap to a new line as viewport narrows */
-  gap: 1.2rem;                /* Sets uniform gutter space between adjacent cards */
-  margin-top: 1.5rem;
+    display: flex;              /* Establishes flex container for responsive card items */
+    flex-wrap: wrap;            /* Wraps elements to new line on viewport resizing */
+    gap: 1.2rem;                /* Generates equal vertical and horizontal gutter space */
+    margin-top: 1.5rem; 
 }
 
-/* Individual card elements acting as Flex Items */
-.card {
-  background-color: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.2rem;
-  flex: 1 1 260px;
-  max-width: 340px;
-  transition: border-color 0.2s, transform 0.2s;
+/* Distinctive responsive card sizing rules */
+.card { 
+    background-color: var(--bg-light); 
+    border: 1px solid var(--border); 
+    border-radius: 6px; 
+    padding: 1.2rem; 
+    flex: 1 1 260px;            /* Flexible basis growth with protective boundary limits */
+    max-width: 340px; 
+    transition: border-color 0.2s, transform 0.2s; 
 }
 
-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
+.card:hover { 
+    border-color: var(--accent); 
+    transform: translateY(-3px); 
 }
 
-.card h3 {
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
+.card h3 { 
+    color: var(--accent); 
+    margin-bottom: 0.5rem; 
+    font-size: 1rem; 
 }
 
-.card img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 0.8rem;
-  border: 1px solid var(--border);
+.card img { 
+    width: 100%; 
+    height: 400px; 
+    object-fit: cover; 
+    border-radius: 4px; 
+    margin-bottom: 0.8rem; 
+    border: 1px solid var(--border); 
 }
 
-/* Blockquote */
-blockquote {
-  border-left: 4px solid var(--accent);
-  padding: 0.8rem 1.2rem;
-  margin: 1.5rem 0;
-  background-color: var(--bg-light);
-  color: var(--text-muted);
-  font-style: italic;
-  border-radius: 0 6px 6px 0;
+/* ==========================================================================
+   7. Dynamically Generated List Style (Assessment 6)
+   ========================================================================== */
+/* Target-specific rules styling the dynamic list from resources.html */
+#list ul { 
+    list-style-type: none; 
+    padding: 0; 
+    margin: 1.5rem 0; 
 }
 
-/* Links */
-a {
-  color: var(--accent);
-  text-decoration: none;
+#list ul li { 
+    background-color: #fafafa;
+    border-left: 4px solid var(--accent);
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 0.6rem;
+    border-radius: 0 6px 6px 0;
+    color: var(--text-main);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
 }
 
-a:hover {
-  text-decoration: underline;
+#list ul li:hover {
+    transform: translateX(4px);
 }
 
-/* Contact Form Layout */
-form {
-  background-color: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 2rem;
-  max-width: 680px;
-  margin-top: 1.5rem;
-}
-
-/* 13. Footer */
-footer {
-  background-color: var(--bg-light);
-  border-top: 1px solid var(--border);
-  text-align: center;
-  padding: 1rem 2rem;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  margin-top: 2rem;
-}
-
-/*
-   RESPONSIVE DESIGN
-   Prevents horizontal scrolling on small screens
- */
-@media (max-width: 600px) {
-  header {
+/* =========================================
+   Contact Form Layout & Typography Styles
+   ========================================= */
+/* Controls spacing and presentation of the contact form */
+form { 
+    background-color: var(--bg-light); 
+    border: 1px solid var(--border); 
+    border-radius: 8px; 
+    padding: 2.2rem; 
+    max-width: 680px; 
+    margin-top: 1.5rem; 
+    display: flex;
     flex-direction: column;
-    text-align: center;
-  }
-
-  nav ul {
-    flex-direction: column;  /* Stack navigation menu elements vertically on narrow viewports */
-  }
-
-  nav ul li a {
-    text-align: center;
-    padding: 0.6rem 1rem;
-  }
-
-  .card {
-    flex: 1 1 100%;          /* Stack cards to take up full-width */
-    max-width: 100%;
-  }
+    gap: 1.2rem;
 }
 
-/* Style the dynamically generated list on resources.html */
-#list ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 1.5rem 0;
+/* Accessible inputs labels styling */
+form label {
+    font-weight: bold;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    margin-bottom: -0.4rem;
 }
 
-#list ul li {
-  background-color: var<|eos|>
+/* Unified textbox and inputs focus states */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
 
-.error-container {
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(156, 175, 136, 0.2);
+}
+
+/* Fieldsets and legends groupings styling */
+form fieldset {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+form legend {
+    font-weight: bold;
+    color: var(--accent);
+    padding: 0 8px;
+    font-size: 0.95rem;
+}
+
+form fieldset label {
+    display: block;
+    font-weight: normal;
+    margin: 0.6rem 0;
+    cursor: pointer;
+}
+
+form fieldset input[type="radio"],
+form fieldset input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Form Action Buttons */
+form button {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s, color 0.2s;
+    font-family: inherit;
+}
+
+form button[type="submit"] {
+    background-color: var(--accent);
+    color: var(--bg-light);
+}
+
+form button[type="submit"]:hover {
+    background-color: var(--accent-dim);
+}
+
+form button[type="reset"] {
+    background-color: #f1f5f9;
+    color: var(--text-muted);
+}
+
+form button[type="reset"]:hover {
+    background-color: #e2e8f0;
+}
+
+/* Datalist helper instructions styling */
+.datalist-hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: -0.6rem;
+    font-style: italic;
+}
+
+/* ==========================================
+   9. Custom Client-side Validation feedback
+   ========================================== */
+/* Inline field error feedback indicators */
+.error { 
+    color: #e53e3e; 
+    font-size: 0.85rem; 
+    display: block; 
+    margin-top: -0.8rem; /* Keeps spacing tight directly beneath failed inputs */
+    margin-bottom: 0.2rem;
+    font-weight: bold; 
+}
+
+/* Form-level Success and Error summaries */
+.error-container,
+.form-message { 
+    margin-top: 15px; 
+    padding: 12px 18px; 
+    border-radius: 6px; 
+    font-weight: bold;
+    display: none; 
+}
+
+/* Dynamic error classes triggered by validation.js */
+.error-container.error,
+.form-message.error { 
+    display: block; 
+    background-color: #f8d7da; 
+    color: #721c24; 
+    border: 1px solid #f5c6cb; 
+}
+
+/* Dynamic success classes triggered by validation.js */
+.error-container.success,
+.form-message.success { 
+    display: block; 
+    background-color: #d4edda; 
+    color: #155724; 
+    border: 1px solid #c3e6cb; 
+}
+
+/* Error summaries list styling */
+.error-container h3,
+.form-message h3 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: inherit;
+}
+
+.error-container ul,
+.form-message ul {
+    margin-left: 1.2rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* ====================================
+   10. Weather API lookup and Metrics
+   ==================================== */
+.form-section {
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.status-message {
     margin-top: 15px;
-    padding: 10px 15px;
-    border-radius: 4px;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
     display: none;
 }
 
-.error-container.error {
+.status-message.loading {
     display: block;
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    border: 1px solid #bee3f8;
 }
 
-.error-container.success {
+.status-message.error {
     display: block;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background-color: #fed7d7;
+    color: #c53030;
+    border: 1px solid #feb2b2;
 }
 
-
-3. CSS Feedback Rules (style.css)
-css
-  color: var(--text-muted);
-  margin-top: 2rem;
+/* Results Display Box */
+.results-card {
+    background-color: #fafafa;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    margin-top: 20px;
 }
 
-/*
-   RESPONSIVE DESIGN
-   Prevents horizontal scrolling on small screens
- */
-@media (max-width: 600px) {
-  header {
+.results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.results-header h3 {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 1.4rem;
+}
+
+.results-body {
+    display: flex;
     flex-direction: column;
-    text-align: center;
-  }
-
-  nav ul {
-    flex-direction: column;  /* Stack navigation menu elements vertically on narrow viewports */
-  }
-
-  nav ul li a {
-    text-align: center;
-    padding: 0.6rem 1rem;
-  }
-
-  .card {
-    flex: 1 1 100%;          /* Stack cards to take up full-width */
-    max-width: 100%;
-  }
+    gap: 15px;
 }
 
-/* Style the dynamically generated list on resources.html */
-#list ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 1.5rem 0;
+.main-metric {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
 }
 
-#list ul li {
-  background-color: var<|eos|>
-
-.error-container {
-    margin-top: 15px;
-    padding: 10px 15px;
-    border-radius: 4px;
-    display: none;
+.temp-val {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--text-main);
 }
 
-.error-container.error {
-    display: block;
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+.desc-val {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    font-style: italic;
 }
 
-.error-container.success {
-    display: block;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+.extra-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    border-top: 1px dashed var(--border);
+    padding-top: 15px;
 }
 
+.metric-item {
+    display: flex;
+    flex-direction: column;
+}
 
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.metric-value {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+/* ==========================================
+   Responsive Design media query rules
+   ========================================== */
+/* Adjusts elements gracefully on screen sizes under 600px */
+@media (max-width: 600px) { 
+    /* Redefine grid rows to accommodate vertically-stacked elements safely */
+    .container, .page-wrapper {
+        grid-template-rows: auto auto auto auto;
+    }
+
+    header { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 1.5rem 1rem;
+    }
+    
+    /* Stacks flex navigation bar items vertically (Assessment 4 - Criterion 2) */
+    nav ul { 
+        flex-direction: column;  
+    }
+    
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a { 
+        text-align: center; 
+        padding: 0.6rem 1rem; 
+        border-bottom: 1px solid #f1f5f9;
+    }
+    
+    /* Reconfigures card flex items to scale full-width (Assessment 4 - Criterion 4) */
+    .card { 
+        flex: 1 1 100%;          
+        max-width: 100%; 
+    } 
+
+    form {
+        padding: 1.2rem;
+    }
+
+    .extra-metrics {
+        grid-template-columns: 1fr;
+    }
+}
