@@ -1,3 +1,4 @@
+
 /**
  * validation.js
  * Handles client-side validation for the #webForm element,
@@ -24,7 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log("validation.js loaded successfully.");
 
-    // Real-time phone validation
+    // Provides real-time validation as the user types, giving immediate
+    // feedback if letters are entered instead of numbers, before the
+    // form is submitted.
     phoneInput.addEventListener('input', () => {
 
         if (/[a-zA-Z]/.test(phoneInput.value)) {
@@ -92,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (!/^\d{3}-\d{3}-\d{4}$/.test(phoneInput.value)) {
 
             phoneError.textContent =
-                'Phone number must be in the format 123-456-7890.';
+                'Phone number must be in the format 123-456-7890 (numbers and dashes only).';
             isValid = false;
         }
 
@@ -112,12 +115,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isValid) {
 
             formMessage.textContent =
-                'Form is valid! Submitting...';
+                'Thanks! Your form is valid and is being submitted...';
             formMessage.className =
                 'form-message success';
 
             isSubmitting = true;
 
+            // Re-dispatch a native 'submit' event after validation succeeds,
+            // allowing form.js to handle the actual submission logic separately
+            // while still going through the browser's normal submit flow.
             setTimeout(() => {
 
                 form.dispatchEvent(
@@ -134,12 +140,15 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
 
             formMessage.textContent =
-                'Please correct the errors above.';
+                'Please correct the highlighted fields above before submitting.';
             formMessage.className =
                 'form-message error';
         }
     }
 
+    // Attach the validateForm function as the event handler for the
+    // form's submit event, so validation runs whenever the user
+    // attempts to submit the form.
     if (form) {
         form.addEventListener('submit', validateForm);
     }
