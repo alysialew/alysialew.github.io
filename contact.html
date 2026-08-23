@@ -38,18 +38,23 @@
         <!-- Note the id="webForm" and novalidate attributes -->
         <form id="webForm" action="#" method="post" novalidate>
             <label for="fullName">Full Name *</label>
-            <input type="text" id="fullName" name="fullName" required minlength="2" maxlength="50" placeholder="Jane Doe">
+            <input type="text" id="fullName" name="fullName" required minlength="2" maxlength="50" placeholder="Your Name">
             <span id="fullNameError" class="error"></span>
 
             <label for="email">Email Address *</label>
             <input type="email" id="email" name="email" required placeholder="example@domain.com">
             <span id="emailError" class="error"></span>
 
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required
-       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-       placeholder="123-456-7890">
-<span id="phoneError" class="error"></span>
+         <label for="phone">Phone Number *</label>
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                placeholder="123-867-5309">
+            <span id="phoneError" class="error"></span> 
+
             <fieldset>
                 <legend>Visitor Type</legend>
                 <label>
