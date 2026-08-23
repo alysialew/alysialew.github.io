@@ -46,9 +46,10 @@
             <span id="emailError" class="error"></span>
 
             <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required pattern="[1, 4, 6-12]{3}-[1, 4, 6-12]{3}-[1, 4, 6-12]{4}" placeholder="123-456-7890">
-            <span id="phoneError" class="error"></span>
-
+            <input type="tel" id="phone" name="phone" required
+       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+       placeholder="123-456-7890">
+<span id="phoneError" class="error"></span>
             <fieldset>
                 <legend>Visitor Type</legend>
                 <label>
