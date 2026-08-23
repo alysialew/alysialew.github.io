@@ -25,12 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneInput = document.getElementById('phone');
     const messageInput = document.getElementById('message');
 
-    // --- Step 3: Get references to your message display elements ---
-    const fullNameError = document.getElementById('fullNameError');
-    const emailError = document.getElementById('emailError');
-    const phoneError = document.getElementById('phoneError');
-    const messageError = document.getElementById('messageError');
-    const formMessage = document.getElementById('formMessage');
+    // --- 3. Phone Number Validation ---
+if (!phoneInput.checkValidity()) {
+
+    if (phoneInput.validity.valueMissing) {
+
+        phoneError.textContent = 'Phone number is required.';
+        console.warn("Validation failed: Phone number is missing.");
+
+    } else if (/[A-Za-z]/.test(phoneInput.value)) {
+
+        phoneError.textContent = 'Phone number must contain numbers only.';
+        console.warn("Validation failed: Letters entered in phone field.");
+
+    } else if (phoneInput.validity.patternMismatch) {
+
+        phoneError.textContent = 'Phone number must be in the format 123-456-7890.';
+        console.warn("Validation failed: Phone pattern mismatch.");
+
+    }
+
+    isValid = false;
+    
 
     // Flag to prevent infinite submission loop when form is valid and re-submitted programmatically
     let isSubmitting = false;
