@@ -5,7 +5,7 @@
 // --- API Key ---
 // Store your OpenWeatherMap API key as a constant.
 // Replace the placeholder below with your actual key from openweathermap.org.
-const API_KEY = "YOUR_OPENWEATHERMAP_API_KEY_HERE";
+const API_KEY = "6f27405ae247f52b47e1d26d6f86db35";
 
 // --- Get references to DOM elements ---
 // Using getElementById() to select form, inputs, and display elements
