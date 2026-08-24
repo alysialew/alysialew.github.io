@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- weather.html — Alysia Lewis Personal Portfolio
+     IT-FPX3240 Web Development and JavaScript
+     Assessment 10: Weather Lookup Page (OpenWeatherMap API) -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather | Alysia Lewis</title>
+  <!-- Link to shared external stylesheet (Assessment 3) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Page wrapper uses CSS Grid layout (Assessment 5) -->
+  <div class="page-wrapper">
+
+    <!-- ===== HEADER ===== -->
+    <header>
+      <img src="logo.png" alt="Photo of Alysia Lewis" />
+      <div class="header-text">
+        <h1>Alysia Lewis</h1>
+        <p>Cybersecurity Student &amp; Security+ Certified Analyst</p>
+      </div>
+    </header>
+
+    <!-- ===== NAVIGATION (Flexbox — Assessment 4) ===== -->
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">$ Home</a></li>
+        <li><a href="about.html">$ About</a></li>
+        <li><a href="contact.html">$ Contact</a></li>
+        <li><a href="resources.html">$ Resources</a></li>
+        <li><a href="weather.html" class="active">$ Weather</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+
+      <h2>$ WEATHER LOOKUP</h2>
+      <p>Enter geographic coordinates to retrieve current weather conditions via the OpenWeatherMap API.</p>
+
+      <!-- Weather lookup form (Assessment 10) -->
+      <form id="weatherForm" action="#">
+
+        <!-- Latitude input with label and placeholder -->
+        <label for="latitude">Latitude</label>
+        <input type="number" id="latitude" name="latitude"
+               placeholder="e.g. 40.7128"
+               step="any" required />
+
+        <!-- Longitude input with label and placeholder -->
+        <label for="longitude">Longitude</label>
+        <input type="number" id="longitude" name="longitude"
+               placeholder="e.g. -74.0060"
+               step="any" required />
+
+        <!-- Submit button -->
+        <button type="submit">$ Get Weather</button>
+
+      </form>
+
+      <!-- Status message area (loading / error messages) -->
+      <div id="weather-status" aria-live="polite"></div>
+
+      <!-- Weather results display area (hidden until data loads) -->
+      <div id="weather-results" aria-live="polite">
+        <h3>Current Conditions</h3>
+        <!-- Each element has a unique id for JS to update -->
+        <p><strong>Location:</strong> <span id="w-location">—</span></p>
+        <p><strong>Temperature:</strong> <span id="w-temp">—</span> &deg;F</p>
+        <p><strong>Conditions:</strong> <span id="w-description">—</span></p>
+      </div>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <p>&copy; 2026 Alysia Lewis &mdash; Capella University IT-FPX3240 |
+        <a href="https://github.com/alysialew" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </footer>
+
+  </div><!-- end .page-wrapper -->
+
+  <!-- External JavaScript for weather API (Assessment 10) -->
+  <script src="weather.js"></script>
+</body>
+</html>
