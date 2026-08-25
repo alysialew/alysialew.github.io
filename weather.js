@@ -54,7 +54,7 @@ weatherForm.addEventListener("submit", function (event) {
   }
 
   // --- Display loading message while API request is in progress ---
-  weatherStatus.textContent = "⏳ Loading weather data...";
+  weatherStatus.textContent = "Loading weather data...";
   weatherStatus.style.color = "var(--text-muted)";
   weatherResults.classList.remove("visible");
 
